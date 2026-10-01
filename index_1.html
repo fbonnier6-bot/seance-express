@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Séance Express</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Séance Express">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#E85A32">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACVElEQVR4nO3dwW3CQBRAQYjSQ/og3ZD6Uk76IF3kgBTlwLvYa3mDZ+5Y9uexloUN59v1coJHXvbeAeYlDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDtLrwG29fX4te+H3x/vA3Xgau8/zPOR/ZRcfxl8S+TXJPAecVoYcycDt/HfzzHNtHGPfUX1MNc9VcWzxXh65j9nm6WqFtDyO7T7ix1w8JpynlYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYM08lnZgY55A/psrBwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZAm/cr+gL9mPOFdClYOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQO0vI4trtB/IC3np+mnKeVg7Qqji1iP+aycTfbPNeuHGOP58hl3E01zwGnlVHHo4y7eeZ5vl0vQ3bltOKBPlk8tPs8R8bBk3G1QhIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQfoBxK1NxFwTQ4UAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACVElEQVR4nO3dwW3CQBRAQYjSQ/og3ZD6Uk76IF3kgBTlwLvYa3mDZ+5Y9uexloUN59v1coJHXvbeAeYlDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDtLrwG29fX4te+H3x/vA3Xgau8/zPOR/ZRcfxl8S+TXJPAecVoYcycDt/HfzzHNtHGPfUX1MNc9VcWzxXh65j9nm6WqFtDyO7T7ix1w8JpynlYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYM08lnZgY55A/psrBwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZAm/cr+gL9mPOFdClYOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQO0vI4trtB/IC3np+mnKeVg7Qqji1iP+aycTfbPNeuHGOP58hl3E01zwGnlVHHo4y7eeZ5vl0vQ3bltOKBPlk8tPs8R8bBk3G1QhIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQfoBxK1NxFwTQ4UAAAAASUVORK5CYII=">
+<link rel="manifest" href="manifest.json">
+<style>
+  :root{
+    --bg:#EEF1EA; --surface:#FFFFFF; --surface-2:#E3E8DD;
+    --ink:#1C2420; --ink-soft:#5B6660; --line:#D3D9CB;
+    --accent:#E85A32; --accent-ink:#FFF8F4;
+    --force:#2C5AA0; --force-bg:#E3EAF5;
+    --cardio:#C4431E; --cardio-bg:#F7E4DB;
+    --mobilite:#4A7A50; --mobilite-bg:#E1EBDF;
+    --warn:#B3541C; --warn-bg:#F5E4D3;
+    --shadow:0 1px 2px rgba(28,36,32,0.06), 0 8px 24px -12px rgba(28,36,32,0.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#151A16; --surface:#1E2620; --surface-2:#26302A;
+      --ink:#EDF1EA; --ink-soft:#9BA79E; --line:#334038;
+      --accent:#FF7A4D; --accent-ink:#1B0E08;
+      --force:#7FA8E0; --force-bg:#233045;
+      --cardio:#FF8F65; --cardio-bg:#3A241B;
+      --mobilite:#8FC498; --mobilite-bg:#20301F;
+      --warn:#E8A365; --warn-bg:#3A2A1A;
+      --shadow:0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#151A16; --surface:#1E2620; --surface-2:#26302A;
+    --ink:#EDF1EA; --ink-soft:#9BA79E; --line:#334038;
+    --accent:#FF7A4D; --accent-ink:#1B0E08;
+    --force:#7FA8E0; --force-bg:#233045;
+    --cardio:#FF8F65; --cardio-bg:#3A241B;
+    --mobilite:#8FC498; --mobilite-bg:#20301F;
+    --warn:#E8A365; --warn-bg:#3A2A1A;
+    --shadow:0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  *{box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;line-height:1.45;}
+  .wrap{max-width:1080px;margin:0 auto;padding:36px 20px 64px;}
+
+  header.top{margin-bottom:24px;}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 6px;}
+  h1{font-family:'Bebas Neue',system-ui,sans-serif;font-weight:400;font-size:clamp(40px,7vw,64px);letter-spacing:.01em;margin:0 0 8px;text-wrap:balance;line-height:.95;}
+  .lede{color:var(--ink-soft);font-size:15.5px;max-width:58ch;margin:0;}
+
+  .layout{display:grid;grid-template-columns:360px 1fr;gap:22px;align-items:start;}
+  @media (max-width:860px){ .layout{grid-template-columns:1fr;} }
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:20px;}
+
+  fieldset{border:none;margin:0 0 18px;padding:0;}
+  fieldset:last-of-type{margin-bottom:0;}
+  legend{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px;padding:0;}
+  legend .opt{font-weight:400;text-transform:none;letter-spacing:0;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;}
+  .chip{position:relative;}
+  .chip input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer;}
+  .chip span{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);font-size:13.5px;font-weight:500;cursor:pointer;user-select:none;transition:background .12s,border-color .12s,color .12s;}
+  .chip input:checked + span{background:var(--ink);border-color:var(--ink);color:var(--bg);}
+  .chip input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px;}
+  .chip.warnchip input:checked + span{background:var(--warn);border-color:var(--warn);color:#fff;}
+  .hint{font-size:12px;color:var(--ink-soft);margin-top:6px;}
+  [hidden]{display:none!important;}
+
+  .profile-switch{display:flex;gap:8px;margin-bottom:12px;}
+  .profile-btn{flex:1;padding:11px 10px;border-radius:11px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:14px;cursor:pointer;}
+  .profile-btn.active{background:var(--ink);border-color:var(--ink);color:var(--bg);}
+  .profile-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  .duo-toggle{display:flex;align-items:center;gap:9px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin-bottom:20px;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;user-select:none;}
+  .duo-toggle input{width:16px;height:16px;accent-color:var(--accent);cursor:pointer;flex:none;}
+  .duo-toggle.on{border-color:var(--accent);background:var(--accent-bg,var(--surface-2));}
+  .duo-toggle .duo-sub{display:block;font-weight:400;color:var(--ink-soft);font-size:11.5px;margin-top:2px;}
+  .tag.duo{background:var(--accent);color:var(--accent-ink);}
+
+  .duo-mode-row{display:flex;gap:7px;margin-bottom:18px;}
+  .duo-mode-opt{flex:1;position:relative;}
+  .duo-mode-opt input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer;}
+  .duo-mode-opt span{display:flex;align-items:center;justify-content:center;text-align:center;padding:8px 6px;border-radius:9px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink-soft);font-size:12.5px;font-weight:600;cursor:pointer;}
+  .duo-mode-opt input:checked + span{background:var(--ink);border-color:var(--ink);color:var(--bg);}
+
+  .session-block{margin-bottom:8px;}
+  .duo-divider{height:1px;background:var(--line);margin:26px 0;position:relative;}
+
+  textarea, input[type=text]{width:100%;font-family:inherit;font-size:13.5px;border:1px solid var(--line);border-radius:9px;background:var(--surface-2);color:var(--ink);padding:9px 11px;resize:vertical;}
+  textarea:focus, input[type=text]:focus{outline:2px solid var(--accent);outline-offset:1px;}
+
+  button.primary{width:100%;margin-top:4px;background:var(--accent);color:var(--accent-ink);border:none;border-radius:10px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15px;padding:12px 16px;cursor:pointer;transition:filter .12s, transform .05s;}
+  button.primary:hover{filter:brightness(1.06);}
+  button.primary:active{transform:scale(.99);}
+  button.primary:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+
+  button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:10px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:13.5px;padding:9px 14px;cursor:pointer;}
+  button.ghost:hover{background:var(--surface-2);}
+  button.ghost:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  button.ghost.on{background:var(--warn-bg);border-color:var(--warn);color:var(--warn);}
+
+  .recent{margin-top:18px;}
+  .recent h2{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 9px;}
+  .recent-list{display:flex;flex-direction:column;gap:6px;}
+  .recent-item{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:8px 11px;font-size:12.5px;color:var(--ink-soft);}
+  .recent-item b{color:var(--ink);font-weight:600;}
+  .recent-status{font-size:11px;font-weight:600;padding:2px 7px;border-radius:999px;white-space:nowrap;}
+  .recent-status.full{background:var(--mobilite-bg);color:var(--mobilite);}
+  .recent-status.half{background:var(--warn-bg);color:var(--warn);}
+  .recent-status.none{background:var(--cardio-bg);color:var(--cardio);}
+  .recent-empty, .db-note{font-size:12.5px;color:var(--ink-soft);}
+
+  .session-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 16px;margin-bottom:14px;padding-bottom:16px;border-bottom:1px solid var(--line);}
+  .session-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.01em;margin:0;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{font-size:11.5px;font-weight:600;letter-spacing:.03em;padding:4px 10px;border-radius:999px;white-space:nowrap;}
+  .tag.force{background:var(--force-bg);color:var(--force);}
+  .tag.cardio{background:var(--cardio-bg);color:var(--cardio);}
+  .tag.mobilite{background:var(--mobilite-bg);color:var(--mobilite);}
+  .tag.warn{background:var(--warn-bg);color:var(--warn);}
+  .tag.neutral{background:var(--surface-2);color:var(--ink-soft);}
+
+  .vigilance{display:flex;gap:8px;align-items:flex-start;background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:10px 12px;font-size:12.5px;margin-bottom:16px;}
+
+  .format-note{background:var(--surface-2);border-left:3px solid var(--accent);border-radius:8px;padding:11px 14px;font-size:13px;color:var(--ink);margin-bottom:18px;}
+  .format-note b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+
+  .block{margin-bottom:22px;}
+  .block:last-child{margin-bottom:0;}
+  .block-label{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .block-label::after{content:"";flex:1;height:1px;background:var(--line);}
+  .block-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;}
+  .block-sub{font-size:12px;color:var(--ink-soft);margin:-4px 0 10px;}
+
+  .ex-row{display:grid;grid-template-columns:30px 1fr auto;align-items:start;gap:12px;padding:10px 4px;border-bottom:1px solid var(--line);}
+  .ex-row:last-child{border-bottom:none;}
+  .ex-idx{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--ink-soft);text-align:center;padding-top:1px;}
+  .ex-name{font-weight:600;font-size:14.5px;}
+  .ex-detail{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+  .ex-kb{font-size:12px;color:var(--accent);margin-top:2px;font-weight:600;}
+  .ex-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+  .ex-equip{font-size:11px;color:var(--ink-soft);border:1px solid var(--line);padding:3px 8px;border-radius:7px;white-space:nowrap;}
+  .avoid-btn{background:none;border:none;color:var(--ink-soft);font-size:11px;text-decoration:underline;cursor:pointer;padding:0;font-family:inherit;}
+  .avoid-btn.on{color:var(--warn);text-decoration:none;font-weight:600;}
+  .ex-right{gap:4px;}
+  .howto{margin-top:6px;}
+  .howto summary{font-size:11.5px;color:var(--force);cursor:pointer;font-weight:600;list-style:none;}
+  .howto summary::-webkit-details-marker{display:none;}
+  .howto summary::before{content:"+ ";}
+  .howto[open] summary::before{content:"– ";}
+  .howto p{margin:6px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5;max-width:52ch;}
+
+  .tabata-block{margin-bottom:14px;padding:12px;background:var(--surface-2);border-radius:10px;}
+  .tabata-block h4{margin:0 0 8px;font-size:12.5px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em;}
+
+  .actions-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+  .supp{background:var(--surface-2);border-radius:10px;padding:12px 14px;font-size:13px;margin-top:20px;}
+  .supp b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;}
+
+  .journal{margin-top:22px;border-top:1px solid var(--line);padding-top:18px;}
+  .journal h3{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.01em;margin:0 0 10px;font-weight:400;}
+  .status-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+  .status-btn{flex:1;min-width:120px;padding:10px;border-radius:9px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer;}
+  .status-btn.sel{border-color:var(--ink);}
+  .status-btn.sel[data-status="fait"]{background:var(--mobilite-bg);color:var(--mobilite);border-color:var(--mobilite);}
+  .status-btn.sel[data-status="moitie"]{background:var(--warn-bg);color:var(--warn);border-color:var(--warn);}
+  .status-btn.sel[data-status="pas"]{background:var(--cardio-bg);color:var(--cardio);border-color:var(--cardio);}
+  .save-msg{font-size:12.5px;color:var(--mobilite);margin-top:8px;min-height:16px;}
+
+  .disclaimer{margin-top:22px;font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px;}
+
+  button.timerbtn{background:var(--ink);color:var(--bg);border:none;border-radius:10px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:13.5px;padding:9px 16px;cursor:pointer;}
+  button.timerbtn:hover{filter:brightness(1.15);}
+
+  .timer-overlay{position:fixed;inset:0;background:rgba(10,14,10,.6);display:flex;align-items:center;justify-content:center;z-index:1000;padding:20px;}
+  .timer-overlay[hidden]{display:none;}
+  .timer-inner{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:36px 28px 28px;max-width:440px;width:100%;text-align:center;position:relative;box-shadow:var(--shadow);}
+  .timer-close, .timer-mute{position:absolute;top:14px;background:none;border:none;color:var(--ink-soft);cursor:pointer;padding:8px;line-height:1;}
+  .timer-close{right:8px;font-size:17px;} .timer-mute{left:8px;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;}
+  .timer-close:hover, .timer-mute:hover{color:var(--ink);}
+  .timer-progress{font-size:11.5px;font-weight:600;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;margin:0 0 7px;}
+  .timer-progress-bar{height:3px;background:var(--line);border-radius:3px;margin:0 0 16px;overflow:hidden;}
+  .timer-progress-fill{height:100%;background:var(--accent);border-radius:3px;transition:width .25s ease;}
+  .timer-next{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12.5px;color:var(--ink-soft);background:var(--surface-2);border-radius:9px;padding:8px 12px;margin:0 0 16px;}
+  .timer-next-tag{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:2px 8px;flex:none;}
+  .timer-overlay.phase-rest .timer-next{background:var(--mobilite-bg);color:var(--mobilite);font-weight:600;font-size:13.5px;}
+  .timer-overlay.phase-rest .timer-next-tag{border-color:var(--mobilite);color:var(--mobilite);}
+  .timer-phase{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px;color:var(--accent);}
+  .timer-overlay.phase-rest .timer-phase{color:var(--mobilite);}
+  .timer-overlay.phase-manual .timer-phase{color:var(--force);}
+  .timer-overlay.phase-prep .timer-phase{color:var(--ink-soft);}
+  .timer-name{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(24px,5vw,32px);margin:0 0 6px;line-height:1.05;text-wrap:balance;}
+  .timer-sub{color:var(--ink-soft);font-size:13.5px;margin:0 0 8px;min-height:18px;}
+  .timer-howto{color:var(--ink);font-size:12.5px;line-height:1.5;background:var(--surface-2);border-radius:9px;padding:9px 12px;margin:0 0 16px;text-align:left;}
+  .timer-clock{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;font-weight:600;font-size:clamp(52px,15vw,88px);line-height:1;margin:6px 0 24px;color:var(--ink);}
+  .timer-overlay.phase-rest .timer-clock{color:var(--mobilite);}
+  .timer-amrap{font-size:12.5px;color:var(--ink-soft);background:var(--surface-2);border-radius:9px;padding:10px 12px;margin-bottom:16px;text-align:left;}
+  .timer-controls{display:flex;gap:8px;justify-content:center;align-items:stretch;}
+  .timer-controls button.primary{width:auto;flex:1;}
+  .timer-controls button.ghost{padding:12px 15px;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow">Générateur de séances</p>
+    <h1>Séance Express</h1>
+    <p class="lede">Choisis qui s'entraîne, l'objectif et le temps disponible : une séance adaptée à ton matériel, ton niveau et tes éventuelles gênes est générée pour toi.</p>
+  </header>
+
+  <div class="layout">
+    <div>
+      <div class="card">
+        <div class="profile-switch" id="profileSwitch"></div>
+
+        <label class="duo-toggle" id="duoToggle">
+          <input type="checkbox" id="duoCheckbox">
+          <span>Séance à deux<span class="duo-sub">François + Morgane en même temps, sur le même matériel</span></span>
+        </label>
+
+        <div class="duo-mode-row" id="duoModeRow" hidden>
+          <label class="duo-mode-opt"><input type="radio" name="duoMode" value="same"><span>Même séance</span></label>
+          <label class="duo-mode-opt"><input type="radio" name="duoMode" value="diff"><span>Objectifs différents</span></label>
+        </div>
+
+        <form id="genForm">
+          <fieldset>
+            <legend>Séance</legend>
+            <div class="chips" id="sessionChips" data-name="session"></div>
+          </fieldset>
+
+          <fieldset id="otherSessionField" hidden>
+            <legend id="otherSessionLegend">Séance pour l'autre</legend>
+            <div class="chips" id="sessionChipsOther" data-name="sessionOther"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Durée</legend>
+            <div class="chips" id="durationChips" data-name="duration"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Niveau</legend>
+            <div class="chips" id="levelChips" data-name="level"></div>
+          </fieldset>
+
+          <fieldset id="zoneField">
+            <legend>Zones ciblées <span class="opt">(optionnel)</span></legend>
+            <div class="chips" id="zoneChips" data-name="zone"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Matériel disponible</legend>
+            <div class="chips" id="equipChips" data-name="equip">
+              <label class="chip locked"><input type="checkbox" checked disabled><span>Poids du corps</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Zones sensibles en ce moment <span class="opt">(exclues automatiquement)</span></legend>
+            <div class="chips" id="sensitiveChips" data-name="sensitive"></div>
+            <input type="text" id="sensitiveOther" placeholder="Autre (ex : tendinite poignet gauche)…" style="margin-top:8px;">
+          </fieldset>
+
+          <button type="submit" class="primary">Générer ma séance</button>
+        </form>
+      </div>
+
+      <div class="recent">
+        <h2 id="recentTitle">Journal</h2>
+        <div class="recent-list" id="recentList"></div>
+      </div>
+    </div>
+
+    <div class="card" id="sessionCard"></div>
+  </div>
+</div>
+
+<div class="timer-overlay" id="timerOverlay" hidden>
+  <div class="timer-inner">
+    <button type="button" class="timer-mute" id="timerMute" aria-label="Couper le son">Son : on</button>
+    <button type="button" class="timer-close" id="timerClose" aria-label="Fermer">✕</button>
+    <p class="timer-progress" id="timerProgress"></p>
+    <div class="timer-progress-bar"><div class="timer-progress-fill" id="timerProgressFill"></div></div>
+    <p class="timer-phase" id="timerPhaseLabel"></p>
+    <h2 class="timer-name" id="timerName"></h2>
+    <p class="timer-sub" id="timerSub"></p>
+    <p class="timer-howto" id="timerHowto" hidden></p>
+    <div class="timer-clock" id="timerClock">00:00</div>
+    <div class="timer-amrap" id="timerAmrap" hidden></div>
+    <div class="timer-next" id="timerNext" hidden><span class="timer-next-tag">Suivant</span><span id="timerNextLabel"></span></div>
+    <div class="timer-controls" id="timerControls"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---------- Utilities ----------
+  function slugify(s){
+    return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
+  }
+  function shuffled(arr){
+    var a = arr.slice();
+    for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t; }
+    return a;
+  }
+
+  // ---------- Reference data ----------
+  var PROFILES = [
+    {v:"francois", l:"François"},
+    {v:"morgane", l:"Morgane"}
+  ];
+  var LEVELS = [{v:"deb",l:"Débutant"},{v:"int",l:"Intermédiaire"},{v:"av",l:"Avancé"}];
+  var LV_ALL = ["deb","int","av"];
+  var LV_INT_AV = ["int","av"];
+  var LV_AV = ["av"];
+
+  var ZONES = [
+    {v:"jambes",l:"Jambes"},{v:"dos",l:"Dos"},{v:"pectoraux",l:"Pectoraux"},
+    {v:"epaules",l:"Épaules"},{v:"bras",l:"Bras"},{v:"abdos",l:"Abdos / gainage"}
+  ];
+  var ZONE_LABEL = {jambes:"Jambes",dos:"Dos",pectoraux:"Pectoraux",epaules:"Épaules",bras:"Bras",abdos:"Abdos",course:"Spécifique course",fullbody:"Full body",hanches:"Hanches / fessiers"};
+
+  var EQUIP_OPTS = [
+    {v:"kettlebell",l:"Kettlebell (6/8/16 kg)"},
+    {v:"velo",l:"Vélo home trainer"},
+    {v:"abmat",l:"ABmat"},
+    {v:"espalier",l:"Espalier"},
+    {v:"elastique",l:"Élastiques"},
+    {v:"halteres",l:"Haltères (5 kg)"}
+  ];
+  var EQUIP_LABEL = {aucun:"Poids du corps",kettlebell:"Kettlebell",velo:"Vélo",abmat:"ABmat",espalier:"Espalier",elastique:"Élastique",halteres:"Haltères"};
+
+  var SENSITIVE_PARTS = [
+    {v:"genou",l:"Genou",zones:["jambes","course"]},
+    {v:"cheville",l:"Cheville",zones:["jambes","course"]},
+    {v:"hanche",l:"Hanche",zones:["jambes","course","hanches"]},
+    {v:"dosbas",l:"Dos / lombaires",zones:["dos"]},
+    {v:"epaule",l:"Épaule",zones:["epaules"]},
+    {v:"poignet",l:"Poignet",zones:["bras","pectoraux"]}
+  ];
+
+  // Session catalogue: classic formats + goal-based objectifs per profile
+  var SESSIONS = [
+    {key:"muscu", l:"Musculation", profiles:"all", kind:"pool", zones:null},
+    {key:"cardio", l:"Cardio / HIIT", profiles:"all", kind:"cardio", zones:null},
+    {key:"mobilite", l:"Mobilité & étirements", profiles:"all", kind:"mobilite", zones:null},
+    {key:"fullbody", l:"Full body mixte", profiles:"all", kind:"fullbody", zones:null},
+    {key:"renfo-course", l:"Renfo course à pied", profiles:["francois","morgane"], kind:"pool", zones:["jambes","abdos","course"]},
+    {key:"haut-du-corps", l:"Haut du corps", profiles:["morgane"], kind:"pool", zones:["pectoraux","dos","epaules","bras"]},
+    {key:"velo", l:"Vélo (home trainer)", profiles:["morgane"], kind:"velo", zones:null},
+    {key:"match", l:"Échauffement jour de match", profiles:["francois"], kind:"match", zones:null},
+    {key:"pilates", l:"Pilates", profiles:["morgane"], kind:"pilates", zones:null},
+    {key:"renfo-hanche", l:"Renfo hanche / fessiers", profiles:["francois","morgane"], kind:"pool", zones:["hanches"]},
+    {key:"etir-activation", l:"Étirements — avant l'effort", profiles:"all", kind:"activation", zones:null},
+    {key:"etir-recuperation", l:"Étirements — après l'effort", profiles:"all", kind:"mobilite", zones:null}
+  ];
+  var TYPE_LABEL = {}; SESSIONS.forEach(function(s){ TYPE_LABEL[s.key]=s.l; });
+  var TYPE_TAGCLASS = {muscu:"force",cardio:"cardio",mobilite:"mobilite",fullbody:"force","renfo-course":"force","haut-du-corps":"force",velo:"cardio",match:"cardio",pilates:"mobilite","renfo-hanche":"force","etir-activation":"mobilite","etir-recuperation":"mobilite"};
+  var BLOCK_LABELS = {
+    muscu:["Échauffement","Corps de séance","Retour au calme"],
+    cardio:["Échauffement","Corps de séance","Retour au calme"],
+    fullbody:["Échauffement","Corps de séance","Retour au calme"],
+    "renfo-course":["Échauffement","Corps de séance","Retour au calme"],
+    "haut-du-corps":["Échauffement","Corps de séance","Retour au calme"],
+    mobilite:["Mise en route","Séquence de mobilité","Relâchement final"],
+    pilates:["Mise en route","Séquence Pilates","Retour au calme"],
+    "renfo-hanche":["Échauffement","Corps de séance","Retour au calme"],
+    "etir-activation":["Mise en route","Mobilisation dynamique","Prêt·e à démarrer"],
+    "etir-recuperation":["Mise en route","Séquence de récupération","Relâchement final"]
+  };
+  // Extra guidance shown under the format note for specific objectifs (frequency, sequencing cautions…).
+  var OBJECTIVE_NOTES = {
+    "renfo-hanche":{title:"Rythme conseillé", text:"Vise environ 2 séances par semaine pour ce bloc. Fais la descente de marche unijambiste en tout début de corps de séance, quand tu es encore frais(che) — c'est un exercice d'équilibre qui demande un genou bien contrôlé, à éviter en fin de séance sur de la fatigue."},
+    "etir-activation":{title:"Avant l'effort", text:"Pensée pour être faite juste avant une séance, une sortie ou un match : des mouvements dynamiques et articulaires plutôt que des étirements tenus longtemps, pour préparer le corps sans le \"ramollir\" avant l'effort."},
+    "etir-recuperation":{title:"Après l'effort", text:"Pensée pour juste après une séance, une sortie ou un match : quelques minutes ciblées pour relâcher les tensions et démarrer la récupération, pas besoin d'y passer une heure."}
+  };
+
+  var DURATIONS_DEFAULT = [15,30,45,60];
+  var DURATIONS_VELO = [30,45,60,90];
+  var DURATIONS_MATCH = [10,15,20];
+  var DURATIONS_ETIR_ACTIVATION = [8,12,15];
+  var DURATIONS_ETIR_RECUP = [8,12,20];
+
+  var SUPPLEMENT_TIPS = {
+    muscu:"Une source de protéines dans l'heure qui suit (œufs, skyr, whey, viande/poisson) pour la récupération musculaire, et une bonne hydratation.",
+    "renfo-course":"Protéines + un peu de glucides dans l'heure qui suit, et hydratation avec une pincée de sel si tu as beaucoup transpiré.",
+    "haut-du-corps":"Une source de protéines dans l'heure qui suit, et une bonne hydratation.",
+    cardio:"Réhydrate-toi bien (eau, + électrolytes si grosse transpiration) et associe glucides + protéines dans les 1-2h pour reconstituer les réserves.",
+    fullbody:"Hydratation généreuse après l'effort, puis un repas avec protéines et glucides dans les 1-2h.",
+    mobilite:"Pas de besoin particulier : hydrate-toi normalement. Le magnésium peut aider en cas de tensions musculaires récurrentes.",
+    velo:"Pendant une sortie longue : hydrate-toi régulièrement (eau + glucides au-delà d'1h). Après : protéines + glucides dans l'heure qui suit.",
+    match:"Avant le match : une collation riche en glucides 1 à 2h avant (banane, pain, barre de céréales) et une bonne hydratation ; évite de tester un nouvel aliment le jour J.",
+    pilates:"Pas de besoin particulier après une séance de Pilates : hydrate-toi normalement tout au long de la journée. Si tu enchaînes avec une séance vélo ou renfo running le même jour, pense à un vrai repas avec protéines et glucides entre les deux.",
+    "renfo-hanche":"Pas de besoin particulier : hydrate-toi normalement. Une source de protéines dans la journée aide comme pour toute séance de renforcement.",
+    "etir-activation":"Pas de besoin particulier : garde plutôt tes réserves pour la séance ou la sortie qui arrive. Une gorgée d'eau si besoin.",
+    "etir-recuperation":"Pas de besoin particulier au-delà de ce que ta séance principale demandait déjà : hydrate-toi normalement et écoute tes sensations."
+  };
+
+  function ex(n,z,eq,lv,mode,sets,repsOrSec,rest,kb,desc){
+    var o = {n:n,z:z,eq:eq,lv:lv,m:mode,s:sets,r:repsOrSec,rest:rest};
+    if(kb) o.kb = kb;
+    if(desc) o.desc = desc;
+    o.id = slugify(n);
+    return o;
+  }
+  // Same as ex(), for a movement/hold done on one side at a time (side plank, single-leg balance…).
+  // `sets` is the TOTAL across both sides — always kept even (see adjustedSets) so the split stays exact.
+  function exSide(n,z,eq,lv,mode,sets,repsOrSec,rest,kb,desc){
+    var o = ex(n,z,eq,lv,mode,sets,repsOrSec,rest,kb,desc);
+    o.perSide = true;
+    return o;
+  }
+
+  var MUSCU = [
+    // Jambes
+    ex("Squats poids du corps","jambes","aucun",LV_ALL,"r",3,"15-20",45,0,"Pieds largeur de bassin, descends comme pour t'asseoir en gardant le dos droit et les genoux dans l'axe des pieds, remonte en poussant sur les talons."),
+    ex("Fentes avant alternées","jambes","aucun",LV_ALL,"r",3,"10-12 / jambe",45,0,"Grand pas en avant, descends jusqu'à ce que le genou arrière frôle le sol, buste droit, pousse sur le talon avant pour remonter."),
+    ex("Fentes bulgares (pied surélevé)","jambes","aucun",LV_INT_AV,"r",3,"10 / jambe",60,0,"Pied arrière posé sur un support derrière toi, descends à la verticale sur la jambe avant sans laisser le genou dépasser les orteils."),
+    ex("Squat sumo","jambes","aucun",LV_ALL,"r",3,"15",45,0,"Pieds bien plus larges que les épaules, pointes légèrement ouvertes, descends en gardant le dos droit, pousse sur l'ensemble du pied."),
+    ex("Chaise contre un mur","jambes","aucun",LV_ALL,"t",3,40,30,0,"Dos plaqué au mur, cuisses parallèles au sol, genoux à 90°, tiens la position sans bouger."),
+    ex("Squats sautés","jambes","aucun",LV_INT_AV,"r",3,"10-12",60,0,"Descends comme un squat classique puis pousse fort pour décoller, réceptionne-toi genoux légèrement fléchis."),
+    ex("Fentes arrière alternées","jambes","aucun",LV_ALL,"r",3,"12 / jambe",45,0,"Grand pas en arrière, descends jusqu'à ce que le genou arrière frôle le sol, reviens en position de départ."),
+    ex("Squat avec élastique","jambes","elastique",LV_ALL,"r",3,"15",45,0,"Élastique sous les pieds et sur les épaules ou autour des cuisses, effectue un squat classique en résistant à la tension."),
+    ex("Extension de hanche à l'élastique","jambes","elastique",LV_ALL,"r",3,"12 / jambe",45,0,"Élastique fixé bas, cheville dans la boucle, tends la jambe vers l'arrière en gardant le bassin stable."),
+    ex("Squat gobelet kettlebell","jambes","kettlebell",LV_ALL,"r",4,"12",60,{francois:16,morgane:8},"Kettlebell tenue à deux mains contre la poitrine, descends en squat en gardant les coudes à l'intérieur des genoux."),
+    ex("Fentes avec haltères","jambes","halteres",LV_INT_AV,"r",3,"10 / jambe",60,{francois:5,morgane:4},"Un haltère dans chaque main le long du corps, réalise une fente classique en gardant le buste droit."),
+    ex("Soulevé de terre jambes tendues kettlebell","jambes","kettlebell",LV_INT_AV,"r",4,"10",75,{francois:16,morgane:8},"Jambes presque tendues, fais glisser la kettlebell le long des jambes en poussant les fesses vers l'arrière, dos plat."),
+    ex("Hip thrust (haltères)","jambes","halteres",LV_ALL,"r",4,"12",60,{francois:5,morgane:5},"Épaules calées sur un support, haltère sur le bassin, pousse les hanches vers le haut en contractant les fessiers."),
+    ex("Squat avant kettlebell (rack)","jambes","kettlebell",LV_INT_AV,"r",4,"10",60,{francois:12,morgane:6},"Kettlebell tenue en position rack contre les épaules, coudes hauts, descends en squat en gardant le buste droit."),
+    ex("Fentes latérales (Cossack squat)","jambes","aucun",LV_INT_AV,"r",3,"10 / jambe",45,0,"Grand pas sur le côté, plie un genou en gardant l'autre jambe tendue, bassin bas, pousse pour revenir au centre."),
+    ex("Step-up alterné (sur step ou marche)","jambes","aucun",LV_ALL,"r",3,"10 / jambe",45,0,"Monte sur un step ou une marche en poussant sur la jambe du haut, redescends en contrôlant, alterne les jambes."),
+    ex("Squat sumo kettlebell","jambes","kettlebell",LV_ALL,"r",3,"12",60,{francois:16,morgane:8},"Kettlebell tenue à deux mains entre les jambes, pieds larges et pointes ouvertes, descends en squat en gardant le dos droit."),
+    exSide("Extension de jambe à quatre pattes (donkey kick)","jambes","aucun",LV_ALL,"r",6,"12",30,0,"À quatre pattes, genou plié, pousse le talon vers le plafond en contractant le fessier, sans cambrer le bas du dos."),
+    exSide("Extension de mollets unijambiste","jambes","aucun",LV_ALL,"r",6,"15",25,0,"En équilibre sur une jambe, monte sur la pointe de pied le plus haut possible puis redescends lentement."),
+    ex("Fentes avant avec kettlebell (goblet lunge)","jambes","kettlebell",LV_INT_AV,"r",3,"10 / jambe",60,{francois:12,morgane:8},"Kettlebell tenue contre la poitrine, réalise une fente classique en gardant le buste droit."),
+    ex("Squat isométrique + pulses","jambes","aucun",LV_INT_AV,"r",3,"12",45,0,"Descends en squat à mi-hauteur, reste bas et enchaîne de petits mouvements de pulsation sans remonter complètement."),
+    // Hanches / fessiers (bloc dédié "Renfo hanche / fessiers")
+    exSide("Marche latérale élastique","hanches","elastique",LV_ALL,"r",6,"15",30,0,"Élastique placé juste au-dessus des genoux ou des chevilles, légère flexion des genoux et buste stable, fais des pas chassés sur le côté en gardant la tension constante dans l'élastique, sans que les genoux rentrent vers l'intérieur."),
+    exSide("Coquillage à l'élastique","hanches","elastique",LV_ALL,"r",6,"15",30,0,"Allongé sur le côté, genoux pliés et pieds joints, élastique au-dessus des genoux, ouvre le genou du dessus vers le haut en gardant le bassin immobile, puis redescends doucement."),
+    exSide("Pont fessier une jambe","hanches","aucun",LV_ALL,"r",6,"10",30,0,"Allongé sur le dos, genoux pliés, une jambe tendue en l'air, pousse à travers le talon au sol pour lever le bassin en contractant le fessier, redescends sans le reposer complètement."),
+    exSide("Descente de marche une jambe","hanches","aucun",LV_ALL,"r",6,"8",45,0,"Debout sur une marche ou un step, descends lentement l'autre jambe vers le sol sans qu'elle touche, en contrôlant avec la jambe d'appui, puis remonte. À faire de préférence en début de bloc, quand le genou d'appui est encore bien contrôlé et avant l'installation de la fatigue."),
+    exSide("Soulevé de terre une jambe kettlebell","hanches","kettlebell",LV_ALL,"r",6,"8",45,{francois:8,morgane:8},"Kettlebell dans une main, bascule le buste vers l'avant en tendant la jambe opposée vers l'arrière, dos plat et bassin de face, reviens à la verticale en contractant le fessier de la jambe d'appui."),
+    exSide("Clam à l'élastique debout (abduction de hanche)","hanches","elastique",LV_ALL,"r",6,"15",30,0,"Élastique aux chevilles, en appui sur une jambe, lève l'autre jambe tendue sur le côté sans faire basculer le bassin."),
+    exSide("Fire hydrant (levée de genou latérale)","hanches","aucun",LV_ALL,"r",6,"12",30,0,"À quatre pattes, genou plié, lève la jambe sur le côté comme une patte de chien, sans tourner le bassin."),
+    ex("Pont fessier à l'élastique","hanches","elastique",LV_ALL,"r",4,"12",30,0,"Élastique au-dessus des genoux, allongé sur le dos, genoux pliés, pousse les hanches vers le haut en écartant légèrement les genoux contre la résistance."),
+    // Dos
+    ex("Superman","dos","aucun",LV_ALL,"r",3,"15",30,0,"Allongé sur le ventre, lève simultanément bras et jambes tendus quelques centimètres du sol, tiens puis relâche."),
+    ex("Bird-dog (gainage dorsal)","dos","aucun",LV_ALL,"t",3,30,30,0,"À quatre pattes, tends un bras et la jambe opposée en gardant le dos plat et le bassin stable."),
+    ex("Tirage horizontal à l'élastique","dos","elastique",LV_ALL,"r",3,"15",45,0,"Élastique fixé devant toi à hauteur de poitrine, tire les coudes vers l'arrière en rapprochant les omoplates."),
+    ex("Tirage vertical à l'élastique","dos","elastique",LV_ALL,"r",3,"15",45,0,"Élastique fixé en hauteur, tire vers le bas en amenant les coudes le long du corps."),
+    ex("Rowing élastique unilatéral","dos","elastique",LV_ALL,"r",3,"12 / bras",45,0,"Élastique fixé devant, tire un coude vers l'arrière en gardant le buste stable, un bras à la fois."),
+    ex("Rowing kettlebell un bras","dos","kettlebell",LV_ALL,"r",3,"12 / bras",60,{francois:8,morgane:6},"Buste penché en avant, dos plat, tire la kettlebell vers la hanche en gardant le coude près du corps."),
+    ex("Soulevé de terre roumain kettlebell","dos","kettlebell",LV_INT_AV,"r",4,"10",75,{francois:16,morgane:8},"Jambes légèrement fléchies, pousse les fesses en arrière en gardant le dos plat, la kettlebell frôle les jambes."),
+    ex("Tractions à l'espalier","dos","espalier",LV_INT_AV,"r",3,"5-8",90,0,"Suspendu à la barre, tire le corps vers le haut jusqu'à ce que le menton dépasse la barre, redescends en contrôlant."),
+    ex("Extension dorsale à l'espalier","dos","espalier",LV_ALL,"t",3,30,30,0,"Accroché à l'espalier, gaine le dos et les abdos pour stabiliser le buste sans balancer."),
+    ex("Pull-apart à l'élastique (écarté dos)","dos","elastique",LV_ALL,"r",3,"15",30,0,"Élastique tenu à deux mains devant toi, bras tendus, écarte les mains en rapprochant les omoplates."),
+    ex("Rowing haltères buste penché (deux bras)","dos","halteres",LV_ALL,"r",3,"12",60,{francois:5,morgane:4},"Buste penché en avant, dos plat, tire les deux haltères vers les hanches en rapprochant les omoplates."),
+    ex("Soulevé de terre kettlebell (jambes fléchies)","dos","kettlebell",LV_INT_AV,"r",4,"10",75,{francois:16,morgane:8},"Kettlebell au sol entre les pieds, jambes fléchies, dos plat, saisis la kettlebell et redresse-toi en poussant sur les jambes."),
+    ex("Good morning à l'élastique","dos","elastique",LV_ALL,"r",3,"15",45,0,"Élastique sous les pieds et sur les épaules, jambes légèrement fléchies, penche le buste vers l'avant en gardant le dos plat, puis redresse-toi."),
+    ex("Superman tenu (isométrique)","dos","aucun",LV_ALL,"t",3,35,30,0,"Allongé sur le ventre, lève simultanément bras et jambes tendus quelques centimètres du sol et maintiens la position."),
+    ex("Tirage nuque à l'élastique","dos","elastique",LV_INT_AV,"r",3,"12",45,0,"Élastique fixé en hauteur, tire les poignées vers l'arrière de la tête en ouvrant les coudes, omoplates serrées."),
+    // Pectoraux
+    ex("Pompes","pectoraux","aucun",LV_ALL,"r",3,"8-15",45,0,"Mains sous les épaules, corps gainé et aligné de la tête aux talons, descends la poitrine près du sol puis pousse."),
+    ex("Pompes surélevées (mains sur banc)","pectoraux","aucun",["deb"],"r",3,"12",45,0,"Mains posées sur un support surélevé, même mouvement que la pompe classique, corps bien aligné."),
+    ex("Pompes diamant","pectoraux","aucun",["av"],"r",3,"8-10",60,0,"Mains rapprochées sous la poitrine (pouces et index qui se touchent), descends en gardant les coudes près du corps."),
+    ex("Développé couché à l'élastique (au sol)","pectoraux","elastique",LV_ALL,"r",3,"15",45,0,"Allongé, élastique sous le dos, pousse les poignées vers le haut en tendant les bras."),
+    ex("Écarté à l'élastique","pectoraux","elastique",LV_ALL,"r",3,"15",45,0,"Bras légèrement fléchis, ouvre puis referme les bras devant toi en gardant la tension sur l'élastique."),
+    ex("Développé couché haltères","pectoraux","halteres",LV_ALL,"r",4,"10-12",60,{francois:5,morgane:4},"Allongé, haltères au niveau de la poitrine, pousse vers le haut en tendant les bras sans verrouiller les coudes."),
+    ex("Écarté couché haltères","pectoraux","halteres",LV_INT_AV,"r",3,"12",60,{francois:4,morgane:3},"Allongé, bras légèrement fléchis, ouvre les bras sur les côtés puis remonte en ramenant les haltères au-dessus de la poitrine."),
+    ex("Pompes inclinées (mains surélevées, pieds au sol)","pectoraux","aucun",LV_INT_AV,"r",3,"10",60,0,"Mains posées sur un support surélevé, corps aligné, descends la poitrine vers le support puis pousse."),
+    ex("Écarté à l'élastique debout (cross-over)","pectoraux","elastique",LV_ALL,"r",3,"15",30,0,"Élastique fixé en hauteur derrière toi, ramène les mains devant toi en croisant légèrement, bras presque tendus."),
+    ex("Pull-over haltère","pectoraux","halteres",LV_INT_AV,"r",3,"12",60,{francois:5,morgane:4},"Allongé, un haltère tenu à deux mains au-dessus de la poitrine, descends les bras tendus derrière la tête puis remonte."),
+    ex("Pompes prise large","pectoraux","aucun",LV_ALL,"r",3,"10-15",45,0,"Mains bien plus larges que les épaules, descends la poitrine près du sol en gardant le corps gainé, puis pousse."),
+    ex("Développé incliné haltères","pectoraux","halteres",LV_INT_AV,"r",4,"10",60,{francois:5,morgane:4},"Buste incliné à 30-45°, haltères au niveau de la poitrine haute, pousse vers le haut sans verrouiller les coudes."),
+    // Épaules
+    ex("Pompes piquées (pike push-up)","epaules","aucun",LV_INT_AV,"r",3,"8-10",60,0,"Fesses hautes, corps en V inversé, plie les coudes pour amener le sommet du crâne vers le sol puis pousse."),
+    ex("Élévations latérales à l'élastique","epaules","elastique",LV_ALL,"r",3,"15",45,0,"Élastique sous les pieds, lève les bras tendus sur les côtés jusqu'à hauteur d'épaule."),
+    ex("Rotation externe à l'élastique","epaules","elastique",LV_ALL,"r",3,"15 / bras",30,0,"Coude collé au corps à 90°, tourne l'avant-bras vers l'extérieur en résistant à l'élastique."),
+    ex("Développé militaire kettlebell","epaules","kettlebell",LV_INT_AV,"r",3,"10",60,{francois:8,morgane:6},"Kettlebell au niveau de l'épaule, pousse au-dessus de la tête en gardant le tronc gainé."),
+    ex("Élévations latérales haltères","epaules","halteres",LV_ALL,"r",3,"15",45,{francois:3,morgane:2},"Bras légèrement fléchis, lève les haltères sur les côtés jusqu'à hauteur d'épaule, redescends lentement."),
+    ex("Élévations frontales haltères","epaules","halteres",LV_ALL,"r",3,"12",45,{francois:3,morgane:2},"Lève les haltères tendus devant toi jusqu'à hauteur d'épaule, contrôle la descente."),
+    ex("Kettlebell halo","epaules","kettlebell",LV_ALL,"r",3,"10 / sens",45,{francois:6,morgane:6},"Fais tourner la kettlebell autour de la tête en la tenant à deux mains, tronc gainé, alterne le sens."),
+    ex("Oiseau (élévations arrière) haltères","epaules","halteres",LV_ALL,"r",3,"12",45,{francois:3,morgane:2},"Buste penché en avant, bras légèrement fléchis, lève les haltères sur les côtés en serrant les omoplates."),
+    ex("Élévations latérales à la kettlebell","epaules","kettlebell",LV_ALL,"r",3,"10",45,{francois:6,morgane:4},"Kettlebell dans une main, bras légèrement fléchi, lève-la sur le côté jusqu'à hauteur d'épaule, redescends lentement."),
+    ex("Face pull à l'élastique","epaules","elastique",LV_ALL,"r",3,"15",30,0,"Élastique fixé à hauteur de visage, tire vers le visage en écartant les coudes, omoplates serrées."),
+    ex("Développé Arnold haltères","epaules","halteres",LV_INT_AV,"r",3,"10",60,{francois:4,morgane:3},"Haltères devant les épaules paumes vers toi, pousse vers le haut en tournant les poignets jusqu'à paumes vers l'avant."),
+    ex("Gainage planche avec touche d'épaule","epaules","aucun",LV_INT_AV,"t",3,30,30,0,"En position de planche bras tendus, touche alternativement l'épaule opposée avec chaque main sans faire bouger le bassin."),
+    // Bras
+    ex("Dips sur chaise","bras","aucun",LV_ALL,"r",3,"10-15",45,0,"Mains sur le bord d'une chaise, jambes tendues devant, descends en pliant les coudes puis pousse pour remonter."),
+    ex("Dips entre barres d'espalier","bras","espalier",LV_INT_AV,"r",3,"8-12",60,0,"En appui bras tendus, descends en pliant les coudes vers l'arrière, coudes proches du corps."),
+    ex("Pompes triceps (mains rapprochées)","bras","aucun",LV_INT_AV,"r",3,"10",45,0,"Mains rapprochées sous la poitrine, coudes qui frôlent les côtes en descendant."),
+    ex("Curl biceps à l'élastique","bras","elastique",LV_ALL,"r",3,"15",45,0,"Pied sur l'élastique, plie les coudes pour remonter les mains vers les épaules, coudes fixes."),
+    ex("Extension triceps à l'élastique","bras","elastique",LV_ALL,"r",3,"15",45,0,"Élastique fixé en hauteur derrière toi, tends le bras vers le bas ou l'avant en gardant le coude fixe."),
+    ex("Curl biceps haltères","bras","halteres",LV_ALL,"r",3,"12",45,{francois:4,morgane:3},"Coudes fixes le long du corps, plie les bras pour remonter les haltères vers les épaules."),
+    ex("Extension triceps haltère (nuque)","bras","halteres",LV_ALL,"r",3,"12",45,{francois:4,morgane:3},"Haltère tenu à deux mains derrière la tête, tends les bras vers le haut sans bouger les coudes."),
+    ex("Kickback triceps haltère","bras","halteres",LV_ALL,"r",3,"12 / bras",45,{francois:3,morgane:2},"Buste penché, bras à l'horizontale, tends l'avant-bras vers l'arrière en gardant le coude haut et fixe."),
+    ex("Curl marteau haltères","bras","halteres",LV_ALL,"r",3,"12",45,{francois:4,morgane:3},"Haltères tenus paumes face à face, plie les coudes pour remonter vers les épaules sans tourner les poignets."),
+    ex("Extension triceps à l'élastique (au-dessus de la tête)","bras","elastique",LV_ALL,"r",3,"15",30,0,"Élastique fixé en hauteur derrière toi, tends les bras vers le haut en gardant les coudes près de la tête."),
+    ex("Curl concentré haltère","bras","halteres",LV_ALL,"r",3,"10 / bras",45,{francois:4,morgane:3},"Assis, coude calé contre l'intérieur de la cuisse, plie le bras pour remonter l'haltère vers l'épaule."),
+    ex("Pompes triceps sur genoux","bras","aucun",["deb"],"r",3,"10",45,0,"Genoux au sol, mains rapprochées sous la poitrine, descends en gardant les coudes près du corps puis pousse."),
+    ex("Extension triceps kettlebell (French press)","bras","kettlebell",LV_INT_AV,"r",3,"10",60,{francois:8,morgane:6},"Kettlebell tenue à deux mains au-dessus de la tête, plie les coudes pour descendre derrière la tête, puis tends les bras."),
+    // Abdos
+    ex("Gainage planche","abdos","aucun",LV_ALL,"t",3,40,30,0,"Appui sur les avant-bras et les pointes de pieds, corps aligné de la tête aux talons, bassin ni haut ni bas."),
+    exSide("Gainage latéral","abdos","aucun",LV_ALL,"t",4,30,30,0,"Appui sur un avant-bras, corps aligné sur le côté, hanches levées et gainées."),
+    ex("Crunchs sur ABmat","abdos","abmat",LV_ALL,"r",3,"20",30,0,"Bassin posé sur l'ABmat, mains derrière la tête, enroule le buste vers le haut sans tirer sur la nuque."),
+    ex("Relevé de buste sur ABmat","abdos","abmat",LV_ALL,"r",3,"15",30,0,"Bassin calé sur l'ABmat, pieds fixés, relève le buste en gardant le dos droit."),
+    ex("Gainage lombaire sur ABmat","abdos","abmat",LV_ALL,"t",3,30,30,0,"Ventre sur l'ABmat, jambes fixées, soulève légèrement le buste en contractant le bas du dos."),
+    ex("Relevés de jambes suspendu à l'espalier","abdos","espalier",LV_INT_AV,"r",3,"10-12",45,0,"Suspendu à la barre, remonte les jambes tendues ou fléchies vers la poitrine sans te balancer."),
+    ex("Relevés de jambes","abdos","aucun",LV_INT_AV,"r",3,"15",30,0,"Allongé sur le dos, jambes tendues, lève-les jusqu'à la verticale en gardant le bas du dos plaqué au sol."),
+    ex("Russian twists","abdos","aucun",LV_ALL,"r",3,"20",30,0,"Assis, buste légèrement en arrière, pivote le buste d'un côté à l'autre en touchant le sol de chaque côté."),
+    ex("Mountain climbers","abdos","aucun",LV_INT_AV,"t",3,30,20,0,"En position de planche, ramène alternativement les genoux vers la poitrine à un rythme soutenu."),
+    ex("Farmer carry kettlebells","abdos","kettlebell",LV_ALL,"t",3,40,30,{francois:16,morgane:8},"Une kettlebell dans chaque main, marche ou reste sur place en gardant le buste droit et les épaules basses."),
+    exSide("Turkish get-up kettlebell","abdos","kettlebell",LV_AV,"r",2,"5 / côté",60,{francois:8,morgane:6},"Mouvement technique : passe de la position allongée à debout en gardant la kettlebell tendue au-dessus de la tête à chaque étape — vas-y lentement."),
+    ex("Gainage planche avec rotation (thread the needle)","abdos","aucun",LV_INT_AV,"t",3,35,30,0,"En planche sur avant-bras, glisse un bras sous le corps en tournant le buste, puis reviens et change de côté."),
+    ex("Crunch inversé (relevé de bassin)","abdos","aucun",LV_ALL,"r",3,"15",30,0,"Allongé, jambes à la verticale ou fléchies, décolle le bassin du sol en amenant les genoux vers la poitrine, sans élan."),
+    ex("Hollow body hold","abdos","aucun",LV_AV,"t",3,30,30,0,"Allongé sur le dos, bras et jambes tendus légèrement décollés du sol, bas du dos plaqué au sol, maintiens la position."),
+    ex("Dead bug","abdos","aucun",LV_ALL,"r",3,"12 / côté",30,0,"Allongé, bras tendus vers le plafond, genoux à 90°, descends un bras et la jambe opposée vers le sol sans creuser le dos, alterne."),
+    ex("V-ups","abdos","aucun",LV_AV,"r",3,"12",30,0,"Allongé, bras et jambes tendus, relève simultanément le buste et les jambes pour venir toucher les pieds, redescends en contrôlant."),
+    ex("Pallof press à l'élastique (anti-rotation)","abdos","elastique",LV_ALL,"r",3,"12 / côté",30,0,"Élastique fixé sur le côté à hauteur de poitrine, pousse les mains devant toi en résistant à la rotation du buste, puis reviens."),
+    // Spécifique course à pied
+    ex("Montées sur pointes (mollets)","course","aucun",LV_ALL,"r",3,"20",30,0,"Debout, monte sur la pointe des pieds le plus haut possible puis redescends lentement."),
+    exSide("Équilibre unipodal (proprioception cheville)","course","aucun",LV_ALL,"t",4,30,20,0,"Tiens-toi en équilibre sur une jambe, genou légèrement fléchi ; ferme les yeux pour plus de difficulté."),
+    ex("École de course : pas chassés + montées de genoux","course","aucun",LV_ALL,"t",3,30,20,0,"Alterne pas chassés sur le côté et montées de genoux dynamiques, sur place ou en te déplaçant."),
+    ex("Fentes marchées longues (amplitude de foulée)","course","aucun",LV_ALL,"r",3,"12 / jambe",45,0,"Enchaîne des fentes en avançant, grande amplitude, buste droit, comme une foulée de course amplifiée."),
+    ex("Gainage + extension de jambe alternée","course","aucun",LV_ALL,"t",3,35,25,0,"En position de planche ou à quatre pattes, tends une jambe vers l'arrière en gardant le bassin stable, alterne."),
+    ex("Skipping bas (petits appuis rapides)","course","aucun",LV_ALL,"t",3,30,15,0,"Petits pas très rapides sur place, appuis légers sur l'avant du pied, comme un skipping de course à faible amplitude."),
+    ex("Talons-fesses amplitude course","course","aucun",LV_ALL,"t",3,30,20,0,"Cours sur place en amenant activement les talons vers les fessiers, en te concentrant sur la vitesse d'exécution."),
+    ex("Montées de genoux avec bras (technique complète)","course","aucun",LV_ALL,"t",3,30,20,0,"Cours sur place en levant les genoux à hauteur de hanche tout en actionnant activement les bras, comme en course."),
+    ex("Fentes sautées légères (pliométrie course)","course","aucun",LV_INT_AV,"r",3,"8 / jambe",45,0,"Enchaîne des fentes en sautant légèrement d'une jambe à l'autre, réception souple, contrôle l'atterrissage."),
+    exSide("Gainage latéral + rotation de hanche","course","aucun",LV_ALL,"t",6,25,25,0,"Appui sur un avant-bras en gainage latéral, ouvre et referme la hanche du dessus comme une porte, sans casser l'alignement du buste.")
+  ];
+
+  var CARDIO = [
+    ex("Jumping jacks","fullbody","aucun",LV_ALL,"t",4,40,15,0,"Saute en écartant bras et jambes, puis reviens en position de départ, rythme soutenu."),
+    ex("Montées de genoux (high knees)","fullbody","aucun",LV_ALL,"t",4,30,20,0,"Cours sur place en montant les genoux le plus haut possible, rythme rapide."),
+    ex("Talons-fesses rapides","fullbody","aucun",LV_ALL,"t",4,30,20,0,"Cours sur place en amenant les talons vers les fessiers, rythme rapide."),
+    ex("Burpees","fullbody","aucun",LV_INT_AV,"t",4,30,30,0,"Descends en squat, pose les mains au sol, envoie les jambes en arrière, fais une pompe, ramène les jambes puis saute."),
+    ex("Mountain climbers","fullbody","aucun",LV_INT_AV,"t",4,30,20,0,"En position de planche, ramène alternativement les genoux vers la poitrine rapidement."),
+    ex("Squats sautés","fullbody","aucun",LV_INT_AV,"t",4,30,25,0,"Descends comme un squat classique puis pousse fort pour décoller, réceptionne-toi genoux fléchis."),
+    ex("Fentes sautées (skater jumps)","fullbody","aucun",LV_INT_AV,"t",4,30,20,0,"Alterne des fentes en sautant d'une jambe à l'autre, contrôle la réception."),
+    ex("Kettlebell swings","fullbody","kettlebell",LV_INT_AV,"t",4,30,25,{francois:16,morgane:8},"Kettlebell entre les jambes, pousse les hanches en avant pour projeter la kettlebell à hauteur de poitrine, dos plat."),
+    ex("Shadow boxing","fullbody","aucun",LV_ALL,"t",4,45,15,0,"Enchaîne des coups de poing dans le vide en te déplaçant sur les appuis, garde active."),
+    ex("Montées sur step / marche rapide","fullbody","aucun",LV_ALL,"t",4,30,20,0,"Monte et descends d'un step ou marche rapidement sur place, rythme soutenu."),
+    ex("Bear crawl (déplacement quadrupède)","fullbody","aucun",LV_INT_AV,"t",3,30,30,0,"Déplace-toi à quatre pattes, genoux légèrement décollés du sol, dos plat."),
+    ex("Corde à sauter (mimée)","fullbody","aucun",LV_ALL,"t",4,40,15,0,"Mime le geste de la corde à sauter, petits sauts sur l'avant du pied, poignets qui tournent."),
+    ex("Squat jacks","fullbody","aucun",LV_INT_AV,"t",4,30,20,0,"Saute pour écarter les pieds en descendant en squat, saute à nouveau pour les ramener, rythme soutenu."),
+    ex("Plank jacks","fullbody","aucun",LV_INT_AV,"t",4,30,20,0,"En position de planche bras tendus, saute pour écarter puis resserrer les pieds, bassin stable."),
+    ex("Star jumps (jumping jack amplifié)","fullbody","aucun",LV_ALL,"t",4,30,20,0,"Saute en écartant largement bras et jambes façon étoile, puis reviens en position groupée."),
+    ex("Speed skaters (fentes sautées latérales)","fullbody","aucun",LV_INT_AV,"t",4,30,20,0,"Saute latéralement d'une jambe à l'autre façon patineur, contrôle chaque réception."),
+    ex("Sprint sur place (rythme maximal)","fullbody","aucun",LV_AV,"t",4,20,25,0,"Cours sur place à la vitesse maximale possible, genoux hauts, bras actifs."),
+    ex("Kettlebell swings unilatéral","fullbody","kettlebell",LV_AV,"t",3,25,30,{francois:12,morgane:8},"Kettlebell dans une main, pousse les hanches en avant pour projeter la kettlebell à hauteur de poitrine, change de main entre les séries."),
+    ex("Kettlebell thruster (squat + poussée)","fullbody","kettlebell",LV_INT_AV,"t",4,30,30,{francois:12,morgane:8},"Kettlebell en position rack, descends en squat puis pousse-la au-dessus de la tête en te relevant."),
+    ex("Sauts en longueur + reset","fullbody","aucun",LV_INT_AV,"r",3,"8",45,0,"Saute le plus loin possible à pieds joints, réceptionne-toi en souplesse, reviens marcher au point de départ entre chaque saut."),
+    ex("Half burpees (sans pompe)","fullbody","aucun",LV_ALL,"t",4,30,25,0,"Descends en squat, pose les mains au sol, envoie les jambes en arrière puis ramène-les et saute, sans faire de pompe."),
+    ex("Flutter kicks (ciseaux au sol)","fullbody","aucun",LV_INT_AV,"t",4,30,20,0,"Allongé sur le dos, jambes tendues légèrement décollées du sol, bat les jambes en petits ciseaux rapides.")
+  ];
+
+  var MOBILITE = [
+    exSide("Étirement des ischio-jambiers debout","jambes","aucun",LV_ALL,"t",2,30,15,0,"Jambe tendue posée en avant, penche le buste vers l'avant en gardant le dos droit jusqu'à sentir l'étirement à l'arrière de la cuisse."),
+    exSide("Étirement des quadriceps debout","jambes","aucun",LV_ALL,"t",2,30,15,0,"Attrape ta cheville derrière toi et ramène le talon vers la fesse, genoux serrés, en gardant l'équilibre."),
+    exSide("Étirement des mollets contre un mur","jambes","aucun",LV_ALL,"t",2,30,15,0,"Une jambe en arrière tendue, talon au sol, penche-toi vers le mur jusqu'à sentir l'étirement au mollet."),
+    exSide("Fente basse (fléchisseurs de hanche)","jambes","aucun",LV_ALL,"t",2,30,15,0,"Un genou au sol, l'autre jambe fléchie devant, pousse le bassin vers l'avant en gardant le buste droit."),
+    ex("Ouverture de hanches (papillon assis)","jambes","aucun",LV_ALL,"t",2,40,15,0,"Assis, plantes de pieds jointes, laisse tomber doucement les genoux vers le sol."),
+    ex("Chat-vache (mobilité vertébrale)","dos","aucun",LV_ALL,"t",2,30,10,0,"À quatre pattes, alterne dos rond en expirant et dos creux en inspirant, mouvement lent et ample."),
+    ex("Torsion vertébrale au sol","dos","aucun",LV_ALL,"t",2,30,10,0,"Allongé sur le dos, genoux pliés, laisse-les tomber d'un côté en gardant les épaules au sol."),
+    ex("Posture de l'enfant","dos","aucun",LV_ALL,"t",2,40,15,0,"Assis sur les talons, buste posé vers l'avant, bras tendus devant toi, relâche complètement."),
+    exSide("Étirement pectoraux dans l'encadrement de porte","pectoraux","aucun",LV_ALL,"t",2,30,15,0,"Avant-bras contre le cadre de porte, avance doucement le buste pour sentir l'étirement sur le devant de l'épaule."),
+    ex("Cercles d'épaules amples","epaules","aucun",LV_ALL,"t",2,30,10,0,"Fais de grands cercles avec les épaules, d'avant en arrière puis inversé, mouvement lent et ample."),
+    exSide("Étirement croisé de l'épaule","epaules","aucun",LV_ALL,"t",2,30,15,0,"Un bras tendu devant toi, ramène-le vers l'épaule opposée avec l'autre bras."),
+    ex("Rotations poignets et chevilles","fullbody","aucun",LV_ALL,"t",2,20,10,0,"Fais tourner doucement les poignets puis les chevilles, dans les deux sens."),
+    ex("Étirement des adducteurs (grenouille)","jambes","aucun",LV_ALL,"t",2,35,15,0,"Genoux écartés et pliés, pieds joints ou proches l'un de l'autre, laisse le bassin descendre doucement vers le sol."),
+    exSide("Étirement du piriforme (cheville sur genou)","jambes","aucun",LV_ALL,"t",2,30,15,0,"Assis ou allongé, croise une cheville sur le genou opposé et ramène doucement la jambe vers la poitrine."),
+    exSide("Étirement des ischio-jambiers assis (jambe tendue au sol)","jambes","aucun",LV_ALL,"t",2,30,15,0,"Assis, une jambe tendue devant toi, penche le buste vers l'avant en gardant le dos droit jusqu'à sentir l'étirement."),
+    exSide("Étirement des fessiers profond (pigeon allongé)","jambes","aucun",LV_ALL,"t",2,35,15,0,"Une jambe pliée devant toi, l'autre tendue en arrière, penche doucement le buste vers l'avant en gardant le bassin au sol."),
+    ex("Étirement du bas du dos (genoux vers la poitrine)","dos","aucun",LV_ALL,"t",2,35,15,0,"Allongé sur le dos, ramène les deux genoux vers la poitrine et laisse le bas du dos s'arrondir doucement."),
+    exSide("Étirement du grand dorsal (bras tendu sur le côté)","dos","aucun",LV_ALL,"t",2,30,15,0,"Debout, un bras tendu au-dessus de la tête, incline le buste sur le côté opposé en sentant l'étirement le long du flanc."),
+    exSide("Étirement des triceps (bras derrière la tête)","bras","aucun",LV_ALL,"t",2,25,10,0,"Un bras plié derrière la tête, pousse doucement le coude vers l'arrière avec l'autre main."),
+    exSide("Étirement des avant-bras (biceps)","bras","aucun",LV_ALL,"t",2,25,10,0,"Bras tendu devant toi, paume vers le haut, tire doucement les doigts vers le bas avec l'autre main."),
+    exSide("Étirement des fléchisseurs du poignet","bras","aucun",LV_ALL,"t",2,20,10,0,"Bras tendu, paume vers l'avant, tire doucement les doigts vers toi avec l'autre main."),
+    exSide("Étirement du tenseur du fascia lata (croisé debout)","course","aucun",LV_ALL,"t",2,30,15,0,"Debout, croise une jambe derrière l'autre, incline le buste sur le côté de la jambe arrière en gardant les pieds ancrés."),
+    ex("Étirement global debout (grand étirement)","fullbody","aucun",LV_ALL,"t",2,30,10,0,"Debout, entrelace les doigts et tends les bras vers le plafond en t'étirant de tout ton long."),
+    ex("Respiration en cohérence cardiaque","fullbody","aucun",LV_ALL,"t",2,60,10,0,"Assis ou allongé, respire à un rythme régulier et lent, environ 5 secondes à l'inspiration et 5 à l'expiration.")
+  ];
+
+  var PILATES = [
+    ex("Le Cent (The Hundred)","abdos","aucun",LV_INT_AV,"t",2,60,20,0,"Allongée sur le dos, jambes en tabletop ou tendues à 45°, tête et épaules décollées du sol, bats les bras tendus le long du corps en rythme avec la respiration (inspire 5 temps, expire 5 temps)."),
+    ex("Roll-up","abdos","aucun",LV_INT_AV,"r",3,"6-8",45,0,"Allongée, bras tendus au-dessus de la tête, déroule la colonne vertèbre par vertèbre pour venir t'asseoir, puis redéroule lentement vers le sol."),
+    ex("Rolling like a ball","abdos","aucun",LV_INT_AV,"r",3,"6-8",30,0,"Assise, genoux ramenés vers la poitrine, mains sur les tibias, bascule en boule d'avant en arrière en gardant le dos rond, sans à-coups."),
+    exSide("Single leg circle","jambes","aucun",LV_ALL,"r",2,"6 / sens / jambe",30,0,"Allongée, une jambe tendue vers le plafond, dessine de grands cercles avec la jambe en gardant le bassin parfaitement stable."),
+    ex("Single leg stretch","abdos","aucun",LV_ALL,"t",3,30,20,0,"Tête et épaules décollées, alterne en ramenant un genou vers la poitrine pendant que l'autre jambe s'étend, les mains accompagnent le genou plié."),
+    ex("Double leg stretch","abdos","aucun",LV_INT_AV,"t",3,30,25,0,"Genoux repliés sur la poitrine, tends bras et jambes en même temps à l'opposé, puis ramène en cercle vers la position de départ."),
+    ex("Spine stretch forward","dos","aucun",LV_ALL,"t",2,30,15,0,"Assise, jambes tendues écartées largeur de bassin, bras tendus devant, arrondis le dos vers l'avant comme pour t'étirer au-dessus d'un gros ballon imaginaire."),
+    ex("Le Saw (la scie)","dos","aucun",LV_INT_AV,"r",2,"5 / côté",30,0,"Assise, jambes écartées, tourne le buste d'un côté puis penche-toi pour aller chercher au-delà du pied, redresse-toi et change de côté."),
+    ex("Swan (préparation)","dos","aucun",LV_INT_AV,"t",3,25,25,0,"Allongée sur le ventre, mains sous les épaules, soulève le buste en gardant le bassin au sol et le regard vers l'avant, redescends en contrôlant."),
+    ex("Natation (Swimming)","dos","aucun",LV_ALL,"t",3,30,20,0,"Allongée sur le ventre, bras et jambes tendus, alterne l'élévation bras opposé / jambe opposée dans un mouvement fluide type nage."),
+    ex("Pelvic curl (pont vertèbre par vertèbre)","jambes","aucun",LV_ALL,"r",3,"10-12",30,0,"Allongée, genoux pliés, déroule le bassin vers le haut vertèbre par vertèbre, puis redescends de la même façon en sentant chaque vertèbre."),
+    exSide("Clam (palourde) à l'élastique","jambes","elastique",LV_ALL,"r",4,"12 / côté",30,0,"Allongée sur le côté, élastique au-dessus des genoux, genoux pliés et pieds joints, ouvre le genou du dessus vers le haut sans bouger le bassin."),
+    exSide("Side kick (préparation)","jambes","aucun",LV_INT_AV,"r",2,"10 / jambe",30,0,"Allongée sur le côté, corps aligné, jambe du dessus tendue, balance-la vers l'avant puis vers l'arrière en gardant le bassin stable."),
+    ex("Criss-cross","abdos","aucun",LV_INT_AV,"t",3,30,25,0,"Mains derrière la tête, alterne en amenant un coude vers le genou opposé plié pendant que l'autre jambe s'étend, rotation du buste contrôlée."),
+    ex("Enroulé du buste sur ABmat","abdos","abmat",LV_ALL,"r",3,"12-15",30,0,"Bassin posé sur l'ABmat, menton loin de la poitrine, enroule le haut du dos en expirant profondément, contrôle la descente."),
+    ex("Rotation de la colonne assise (Spine twist)","dos","aucun",LV_ALL,"t",2,30,15,0,"Assise jambes tendues, bras en croix, tourne le buste d'un côté à l'autre par petites pulsations en gardant le bassin fixe."),
+    exSide("Étirement latéral assis (Mermaid)","abdos","aucun",LV_INT_AV,"t",2,25,15,0,"Assise en tailleur, un bras au sol, l'autre tendu au-dessus de la tête, penche le buste sur le côté en gardant les deux fessiers ancrés au sol."),
+    exSide("Pont vertèbre par vertèbre, une jambe tendue","jambes","aucun",LV_INT_AV,"r",2,"6 / jambe",30,0,"Allongée, genoux pliés, bassin décollé en pont, tends une jambe vers le plafond en gardant le bassin stable, puis change de jambe."),
+    ex("Plank to pike (pike Pilates)","abdos","aucun",LV_INT_AV,"r",3,"8-10",30,0,"En planche bras tendus, pousse les hanches vers le haut pour former un V inversé, puis reviens en planche en contrôlant."),
+    exSide("Side plank avec rotation (thread the needle)","abdos","aucun",LV_INT_AV,"t",2,25,20,0,"En planche latérale, glisse le bras du dessus sous le corps en tournant le buste, puis reviens ouvrir vers le plafond."),
+    exSide("Leg pull front (planche + levée de jambe)","abdos","aucun",LV_AV,"r",2,"5 / jambe",40,0,"En planche bras tendus, lève une jambe tendue derrière toi sans faire bouger le bassin, redescends en contrôlant, change de jambe."),
+    ex("Scissor (ciseaux Pilates)","abdos","aucun",LV_INT_AV,"t",3,30,25,0,"Allongée, jambes tendues vers le plafond, tête et épaules décollées, ouvre les jambes en ciseaux vertical, mains qui accompagnent la jambe basse."),
+    ex("Teaser (préparation)","abdos","aucun",LV_AV,"r",2,"5-6",45,0,"Allongée, jambes tendues à 45°, déroule le buste vers le haut jusqu'à former un V avec les jambes, bras tendus vers les pieds."),
+    ex("Corkscrew (préparation, jambes fléchies)","abdos","aucun",LV_INT_AV,"t",3,25,25,0,"Allongée, jambes en tabletop, dessine de petits cercles avec les jambes jointes en gardant le bassin stable et le bas du dos au sol."),
+    exSide("Standing side stretch (Mermaid debout)","dos","aucun",LV_ALL,"t",2,25,15,0,"Debout, un bras tendu au-dessus de la tête, incline le buste sur le côté opposé, respiration ample."),
+    ex("Chest lift avec rotation","abdos","aucun",LV_INT_AV,"t",3,25,20,0,"Tête et épaules décollées, mains derrière la tête, tourne légèrement le buste d'un côté puis de l'autre en gardant le bassin fixe."),
+    ex("Bras de Pilates avec petits haltères (cercles)","epaules","halteres",LV_ALL,"r",3,"10 / sens",30,{francois:2,morgane:2},"Assise ou debout, bras tendus sur les côtés avec un petit haltère dans chaque main, dessine de petits cercles, alterne le sens."),
+    ex("Shell stretch (posture de l'enfant, bras tendus)","dos","aucun",LV_ALL,"t",2,40,15,0,"Assise sur les talons, buste posé vers l'avant, bras tendus loin devant toi, relâche complètement les épaules.")
+  ];
+
+  var WARMUP_GENERIC = [
+    {n:"Rotations des bras",d:40,c:"Fais tourner les bras tendus, grands cercles vers l'avant puis vers l'arrière."},
+    {n:"Talons-fesses modérés",d:40,c:"Cours sur place à rythme modéré en amenant les talons vers les fessiers."},
+    {n:"Montées de genoux modérées",d:40,c:"Cours sur place à rythme modéré en levant les genoux."},
+    {n:"Squats à vide, tempo lent",d:40,c:"Réalise des squats sans charge, lentement, pour mobiliser hanches et genoux."},
+    {n:"Fentes marchées lentes",d:40,c:"Enchaîne des fentes en avançant, à rythme lent et contrôlé."},
+    {n:"Cercles de hanches",d:30,c:"Mains sur les hanches, fais de grands cercles avec le bassin, dans les deux sens."},
+    {n:"Jumping jacks légers",d:45,c:"Jumping jacks à rythme modéré pour monter progressivement le rythme cardiaque."},
+    {n:"Mobilité de hanches en fente",d:40,c:"Depuis une fente basse, fais de petits cercles de hanche pour ouvrir progressivement l'articulation."},
+    {n:"Pas chassés latéraux",d:40,c:"Déplace-toi sur le côté par petits pas rapides, genoux légèrement fléchis, sur toute la largeur de ta pièce."},
+    {n:"Balancements de jambe (avant/arrière)",d:30,c:"En appui sur un support, balance une jambe tendue vers l'avant et l'arrière, amplitude progressive."},
+    {n:"Rotations de buste debout",d:30,c:"Pieds ancrés, tourne le buste d'un côté à l'autre en laissant les bras suivre librement."},
+    {n:"Gainage planche dynamique",d:35,c:"En planche, alterne appui sur avant-bras et bras tendus pour réveiller le gainage."},
+    {n:"Montées de genoux avec bras",d:40,c:"Cours sur place en levant les genoux tout en balançant activement les bras."},
+    {n:"Squats sumo à vide",d:40,c:"Pieds larges, pointes ouvertes, descends et remonte lentement pour ouvrir les hanches."},
+    {n:"Cercles de bras croisés (grand angle)",d:30,c:"Bras tendus, dessine de grands cercles qui se croisent devant toi, rythme modéré."},
+    {n:"Pompes contre un mur",d:30,c:"Mains sur un mur, réalise quelques pompes inclinées pour activer les épaules et les pectoraux."},
+    {n:"Marche avec levée de genou et pause",d:40,c:"Marche en levant un genou haut à chaque pas, tiens une seconde en équilibre avant de reposer le pied."},
+    {n:"Rotation externe/interne d'épaule (bras au corps)",d:30,c:"Coudes collés au corps à 90°, tourne les avant-bras vers l'extérieur puis l'intérieur, mouvement contrôlé."}
+  ];
+  var COOLDOWN_GENERIC = [
+    {n:"Étirement des mollets (les deux côtés)",d:40,c:"Une jambe en arrière tendue, talon au sol, penche-toi en avant jusqu'à sentir l'étirement. 20s par jambe : change de côté à mi-temps."},
+    {n:"Étirement des quadriceps (les deux côtés)",d:40,c:"Attrape ta cheville derrière toi et ramène le talon vers la fesse, genoux serrés. 20s par jambe : change de côté à mi-temps."},
+    {n:"Étirement des ischio-jambiers (les deux côtés)",d:40,c:"Jambe tendue posée en avant, penche le buste vers l'avant en gardant le dos droit. 20s par jambe : change de côté à mi-temps."},
+    {n:"Posture de l'enfant",d:40,c:"Assis sur les talons, buste posé vers l'avant, bras tendus devant toi, relâche complètement."},
+    {n:"Étirement des épaules (les deux côtés)",d:30,c:"Un bras tendu devant toi, ramène-le vers l'épaule opposée avec l'autre bras. 15s par bras : change de côté à mi-temps."},
+    {n:"Respiration profonde, retour au calme",d:45,c:"Inspire lentement par le nez, expire longuement par la bouche, laisse le rythme cardiaque redescendre."},
+    {n:"Étirement des fessiers (cheville sur genou, assis)",d:40,c:"Assis, une cheville posée sur le genou opposé, penche doucement le buste vers l'avant. 20s par côté : change de côté à mi-temps."},
+    {n:"Étirement des adducteurs (grenouille)",d:40,c:"Genoux écartés, pieds joints ou proches, laisse le bassin descendre doucement vers le sol."},
+    {n:"Étirement du bas du dos (genoux vers la poitrine)",d:35,c:"Allongé sur le dos, ramène les deux genoux vers la poitrine et laisse le bas du dos s'arrondir."},
+    {n:"Torsion vertébrale allongée",d:35,c:"Allongé, genoux pliés, laisse-les tomber d'un côté puis de l'autre en gardant les épaules au sol."},
+    {n:"Étirement des avant-bras et poignets",d:25,c:"Bras tendu, paume vers le haut puis vers le bas, tire doucement les doigts vers toi avec l'autre main. 12s par position."},
+    {n:"Étirement du grand dorsal (bras tendu sur le côté)",d:30,c:"Debout, un bras tendu au-dessus de la tête, incline le buste sur le côté opposé. 15s par côté."},
+    {n:"Marche lente, retour au calme",d:45,c:"Marche tranquillement en laissant la respiration et le rythme cardiaque redescendre progressivement."},
+    {n:"Étirement du psoas (fente basse tenue)",d:40,c:"Un genou au sol, l'autre jambe fléchie devant, pousse doucement le bassin vers l'avant. 20s par côté."},
+    {n:"Auto-massage des mollets (roulement au sol)",d:30,c:"Assis, place un mollet sur l'autre jambe ou un support, fais rouler doucement le muscle."},
+    {n:"Relâchement des trapèzes (inclinaison de tête)",d:30,c:"Incline doucement la tête sur le côté, laisse le poids du bras opposé tirer l'épaule vers le bas. 15s par côté."}
+  ];
+  var WARMUP_MOBILITE = [
+    {n:"Marche sur place",d:45,c:"Marche sur place à rythme tranquille pour commencer à bouger."},
+    {n:"Rotations articulaires (épaules, hanches, chevilles)",d:45,c:"Mobilise chaque articulation par de petits cercles, sans forcer."},
+    {n:"Respiration profonde debout",d:30,c:"Debout, inspire et expire lentement en te concentrant sur ta respiration."},
+    {n:"Cercles de bassin debout",d:30,c:"Mains sur les hanches, fais de grands cercles avec le bassin dans les deux sens."},
+    {n:"Balancements de bras croisés",d:30,c:"Bras tendus, balance-les d'un côté à l'autre en laissant le buste suivre légèrement."},
+    {n:"Flexion/extension douce de la colonne",d:30,c:"Debout, arrondis puis creuse doucement le dos en te concentrant sur chaque vertèbre."},
+    {n:"Marche sur place avec bras actifs",d:40,c:"Marche sur place en balançant activement les bras pour réveiller tout le corps."},
+    {n:"Auto-massage rapide des jambes",d:30,c:"Frictionne doucement les cuisses et mollets avec les mains pour stimuler la circulation."}
+  ];
+  var COOLDOWN_MOBILITE = [
+    {n:"Respiration diaphragmatique allongé·e",d:60,c:"Allongé, une main sur le ventre, respire en gonflant le ventre à l'inspiration."},
+    {n:"Relâchement complet allongé·e",d:60,c:"Allongé, laisse chaque partie du corps se relâcher complètement, yeux fermés si tu veux."},
+    {n:"Posture de l'enfant prolongée",d:60,c:"Assis sur les talons, buste posé vers l'avant, bras tendus devant toi, reste immobile et respire."},
+    {n:"Étirement global allongé (bras et jambes tendus)",d:45,c:"Allongé sur le dos, étire bras et jambes en sens opposés le plus loin possible, puis relâche."},
+    {n:"Scan corporel allongé",d:60,c:"Allongé, parcours mentalement chaque partie du corps de la tête aux pieds en la relâchant."},
+    {n:"Respiration 4-6 (inspire 4, expire 6)",d:60,c:"Inspire sur 4 temps, expire lentement sur 6 temps, répète en te concentrant sur le rythme."}
+  ];
+
+  // Pool "Étirements — avant l'effort" : mobilisation articulaire dynamique (pas des étirements tenus),
+  // pensée pour être faite juste avant une séance, une sortie ou un match.
+  var ACTIVATION_POOL = [
+    exSide("Cercles de cheville amples","jambes","aucun",LV_ALL,"t",2,25,15,0,"En appui sur une jambe, fais de grands cercles avec la cheville libre, dans les deux sens, puis change de jambe."),
+    ex("Balancements de jambe dynamiques (avant/arrière)","jambes","aucun",LV_ALL,"t",2,30,15,0,"En appui sur un support, balance une jambe tendue vers l'avant et l'arrière en augmentant progressivement l'amplitude."),
+    ex("Cercles de hanches amples","hanches","aucun",LV_ALL,"t",2,30,15,0,"Mains sur les hanches, fais de grands cercles avec le bassin, dans les deux sens, en augmentant l'amplitude."),
+    ex("Fentes dynamiques avec rotation du buste","jambes","aucun",LV_ALL,"r",2,"4 / jambe",20,0,"Avance en fente, tourne le buste vers la jambe avant, reviens au centre et change de jambe."),
+    ex("Chat-vache dynamique (mobilité vertébrale)","dos","aucun",LV_ALL,"t",2,30,15,0,"À quatre pattes, alterne dos rond et dos creux à un rythme un peu plus soutenu qu'en étirement classique."),
+    ex("Rotations de buste dynamiques, bras relâchés","dos","aucun",LV_ALL,"t",2,30,15,0,"Pieds ancrés au sol, tourne activement le buste d'un côté à l'autre en laissant les bras suivre librement."),
+    ex("Ouverture thoracique en rotation (bras tendu)","pectoraux","aucun",LV_ALL,"t",2,30,20,0,"À quatre pattes, passe un bras sous le corps puis ouvre-le vers le plafond en suivant la main des yeux, change de bras."),
+    ex("Cercles de bras amples et rapides","epaules","aucun",LV_ALL,"t",2,30,15,0,"Bras tendus, fais de grands cercles vers l'avant puis vers l'arrière, en augmentant progressivement l'amplitude."),
+    ex("Balancements de bras croisés dynamiques","epaules","aucun",LV_ALL,"t",2,30,15,0,"Bras tendus, balance-les d'un côté à l'autre devant toi en laissant le buste accompagner légèrement le mouvement."),
+    ex("Montées de genoux modérées","fullbody","aucun",LV_ALL,"t",2,30,15,0,"Cours sur place à rythme modéré en levant les genoux, pour finir d'élever la température du corps."),
+    ex("Talons-fesses modérés","fullbody","aucun",LV_ALL,"t",2,30,15,0,"Cours sur place à rythme modéré en amenant les talons vers les fessiers.")
+  ];
+  var COOLDOWN_ACTIVATION = [
+    {n:"Respiration dynamique, prêt·e à démarrer",d:20,c:"Deux ou trois respirations amples et un peu plus rapides pour finir de te mettre en action."},
+    {n:"Derniers ajustements, va-et-vient léger",d:25,c:"Quelques pas ou petits mouvements libres pour sentir que le corps est prêt à passer à l'effort."}
+  ];
+
+  var WARMUP_PILATES = [
+    {n:"Respiration latérale en position neutre",d:40,c:"Assise ou allongée, inspire en gonflant les côtes sur les côtés, expire en rentrant légèrement le nombril vers la colonne."},
+    {n:"Bascules du bassin (imprint)",d:40,c:"Allongée, genoux pliés, bascule doucement le bassin d'avant en arrière pour trouver la position neutre du bas du dos."},
+    {n:"Chat-vache (mobilité vertébrale)",d:40,c:"À quatre pattes, alterne dos rond en expirant et dos creux en inspirant, mouvement lent et ample."},
+    {n:"Cercles d'épaules et de bras",d:30,c:"Assise ou debout, fais de grands cercles avec les épaules puis les bras pour ouvrir la cage thoracique."},
+    {n:"Étirement latéral assis (Mermaid, version douce)",d:30,c:"Assise en tailleur, un bras au sol, l'autre tendu au-dessus de la tête, penche doucement le buste sur le côté."},
+    {n:"Roulement d'épaules en respirant",d:30,c:"Assise ou debout, roule les épaules vers l'arrière en synchronisant avec une respiration profonde."},
+    {n:"Bascules du bassin en position assise",d:35,c:"Assise sur un tapis, bascule doucement le bassin d'avant en arrière pour mobiliser le bas du dos."},
+    {n:"Activation du plancher pelvien et du transverse",d:40,c:"Allongée, genoux pliés, contracte doucement le plancher pelvien puis le bas du ventre en expirant, sans bloquer la respiration."}
+  ];
+  var COOLDOWN_PILATES = [
+    {n:"Posture de l'enfant, respiration profonde",d:45,c:"Assise sur les talons, buste posé vers l'avant, bras tendus devant toi, respire profondément."},
+    {n:"Torsion vertébrale allongée",d:40,c:"Allongée sur le dos, genoux pliés, laisse-les tomber d'un côté puis de l'autre en gardant les épaules au sol."},
+    {n:"Relâchement complet en position neutre",d:45,c:"Allongée, jambes légèrement écartées, laisse chaque partie du corps se relâcher, respiration calme."},
+    {n:"Étirement des ischio-jambiers en douceur",d:35,c:"Allongée, une jambe tendue vers le plafond (avec ou sans sangle), ramène-la doucement vers toi."},
+    {n:"Posture de l'enfant, bras tendus loin devant",d:45,c:"Assise sur les talons, avance les bras le plus loin possible devant toi, front posé au sol."},
+    {n:"Respiration latérale profonde",d:40,c:"Assise ou allongée, inspire en gonflant les côtes sur les côtés, expire longuement."},
+    {n:"Étirement doux de la nuque",d:30,c:"Assise, incline doucement la tête sur le côté puis vers l'avant, sans forcer. Change de côté à mi-temps."},
+    {n:"Scan corporel de fin de séance",d:45,c:"Allongée, jambes légèrement écartées, relâche consciemment chaque partie du corps, du bas vers le haut."}
+  ];
+
+  var MATCH_ACTIVATION = [
+    {n:"Footing / trottinement léger",d:90,c:"Trottine à allure très facile pour lancer la machine."},
+    {n:"Talons-fesses",d:30,c:"Cours sur place ou en te déplaçant en amenant les talons vers les fessiers."},
+    {n:"Montées de genoux",d:30,c:"Cours sur place ou en te déplaçant en levant les genoux."},
+    {n:"Pas chassés",d:30,c:"Déplace-toi sur le côté par petits pas rapides, genoux légèrement fléchis. 15s vers la droite, 15s vers la gauche."},
+    {n:"Rotations de bras et d'épaules",d:30,c:"Fais tourner les bras tendus, grands cercles vers l'avant puis vers l'arrière."},
+    {n:"Genoux/talons alternés rapides",d:30,c:"Alterne montées de genoux et talons-fesses à rythme progressif."},
+    {n:"Sauts sur place légers",d:30,c:"Petits sauts sur place, appuis dynamiques, pour réveiller les appuis."},
+    {n:"Marche active avec grands pas",d:60,c:"Marche en grandes enjambées, bras actifs, pour continuer à monter en température."}
+  ];
+  var MATCH_MOBILITE = [
+    {n:"Rotations de hanches",d:30,c:"Mains sur les hanches, fais de grands cercles avec le bassin."},
+    {n:"Fentes marchées avec rotation du buste",d:40,c:"Enchaîne des fentes en avançant en tournant le buste vers la jambe avant à chaque pas."},
+    {n:"Cercles de chevilles",d:20,c:"Fais tourner chaque cheville dans les deux sens."},
+    {n:"Gainage planche dynamique",d:30,c:"En planche, alterne appui sur avant-bras et bras tendus."},
+    {n:"Pont fessier",d:30,c:"Allongé, genoux pliés, pousse les hanches vers le haut en contractant les fessiers."},
+    {n:"Balancements de jambe latéraux",d:30,c:"En appui, balance une jambe tendue sur le côté, amplitude progressive, puis change de jambe."},
+    {n:"Rotations de buste dynamiques",d:30,c:"Pieds ancrés, tourne activement le buste d'un côté à l'autre, bras relâchés."},
+    {n:"Fentes latérales dynamiques",d:35,c:"Enchaîne des fentes sur le côté en te déplaçant, alterne gauche et droite."},
+    {n:"Mobilité des épaules en mouvement",d:25,c:"En te déplaçant, fais tourner activement les épaules vers l'avant puis l'arrière."}
+  ];
+  var MATCH_INTENSITE = [
+    {n:"Accélérations progressives sur 20 m × 4",d:60,c:"Accélère sur 20 mètres en augmentant l'intensité à chaque répétition, jusqu'à 80-90% de ta vitesse."},
+    {n:"Changements de direction",d:45,c:"Cours puis change brusquement de direction sur un signal ou un repère au sol."},
+    {n:"Sprints courts × 3",d:45,c:"Sprints courts et intenses, récupération complète entre chaque."},
+    {n:"Étirements dynamiques des jambes",d:40,c:"Balance la jambe tendue vers l'avant et l'arrière, ou sur le côté, en mouvement contrôlé. 20s par jambe."},
+    {n:"Sprints avec changement de direction",d:50,c:"Sprint court puis change brusquement de direction sur un repère, répète plusieurs fois."},
+    {n:"Sauts explosifs (squat jump) × 6",d:40,c:"Enchaîne des squats sautés explosifs, réception contrôlée à chaque fois."},
+    {n:"Course navette courte",d:50,c:"Fais des allers-retours rapides sur une courte distance (10-15 mètres)."},
+    {n:"Accélérations avec ballon (si possible)",d:50,c:"Accélère en conduite de balle ou en dribble si tu as un ballon sous la main, sinon accélère à vide."}
+  ];
+
+  var VELO_TEMPLATES = [
+    {id:"endurance",label:"Endurance active",levels:["deb","int","av"],desc:"Pédalage régulier à allure confortable (tu peux parler), cadence 80-90 rpm, résistance modérée. Change la cadence toutes les 5 minutes pour varier."},
+    {id:"seuil",label:"Travail au seuil",levels:["int","av"],desc:"Résistance élevée, allure soutenue mais tenable (tu peux dire quelques mots, pas plus)."},
+    {id:"vo2",label:"VO2max / puissance",levels:["av"],desc:"Effort proche du maximum, cadence élevée, récupération active entre les blocs."},
+    {id:"sprints",label:"Sprints",levels:["int","av"],desc:"Sprint tout donné à chaque bloc, récupération complète avant le suivant."}
+  ];
+
+  // ---------- State ----------
+  var state = {
+    profile: "francois",
+    session: "muscu",
+    duration: 30,
+    level: "int",
+    zones: [],
+    equip: EQUIP_OPTS.map(function(o){return o.v;}),
+    sensitive: [],
+    duo: false,
+    duoMode: "same", // "same" | "diff"
+    otherSession: null
+  };
+  var profileData = {
+    francois:{sensitiveZones:[],sensitiveNote:"",excludedExercises:[]},
+    morgane:{sensitiveZones:[],sensitiveNote:"",excludedExercises:[]}
+  };
+  var currentSession = null;   // solo or "même séance" duo — single rendered session
+  var currentSessionA = null;  // "objectifs différents" duo — session for the primary profile
+  var currentSessionB = null;  // "objectifs différents" duo — session for the other profile
+  var currentDiffPidA = null, currentDiffPidB = null;
+  var cardStatus = {}; // idPrefix -> chosen status ("fait"/"moitie"/"pas")
+
+  function curProfile(){ return profileData[state.profile] || {sensitiveZones:[],sensitiveNote:"",excludedExercises:[]}; }
+  function otherProfileId(){ return state.profile === "francois" ? "morgane" : "francois"; }
+  function otherProfileLabel(){ return PROFILES.filter(function(p){return p.v===otherProfileId();})[0].l; }
+  function sessionsForProfile(pid){ return SESSIONS.filter(function(s){ return s.profiles==="all" || s.profiles.indexOf(pid)>-1; }); }
+  function sessionsForDuo(){
+    return SESSIONS.filter(function(s){
+      return s.profiles==="all" || (s.profiles.indexOf("francois")>-1 && s.profiles.indexOf("morgane")>-1);
+    });
+  }
+  function excludedZonesForProfileId(pid){
+    var pd = profileData[pid] || {sensitiveZones:[]};
+    var zones = [];
+    SENSITIVE_PARTS.forEach(function(sp){ if((pd.sensitiveZones||[]).indexOf(sp.v)>-1) zones = zones.concat(sp.zones); });
+    return zones;
+  }
+  function excludedZonesForDuo(){
+    var zones = [];
+    PROFILES.forEach(function(p){ zones = zones.concat(excludedZonesForProfileId(p.v)); });
+    return zones;
+  }
+  function excludedIdsForDuo(){
+    var ids = [];
+    PROFILES.forEach(function(p){
+      var pd = profileData[p.v] || {excludedExercises:[]};
+      ids = ids.concat(pd.excludedExercises || []);
+    });
+    return ids;
+  }
+  function sessionDef(key){ for(var i=0;i<SESSIONS.length;i++){ if(SESSIONS[i].key===key) return SESSIONS[i]; } return SESSIONS[0]; }
+  function durationsFor(key){
+    if(key==="velo") return DURATIONS_VELO;
+    if(key==="match") return DURATIONS_MATCH;
+    if(key==="etir-activation") return DURATIONS_ETIR_ACTIVATION;
+    if(key==="etir-recuperation") return DURATIONS_ETIR_RECUP;
+    return DURATIONS_DEFAULT;
+  }
+
+  // ---------- Build controls ----------
+  function buildChips(container, items, name, multi, selectedGetter, onChange){
+    container.innerHTML = "";
+    items.forEach(function(item){
+      var label = document.createElement("label");
+      label.className = "chip";
+      var input = document.createElement("input");
+      input.type = multi ? "checkbox" : "radio";
+      input.name = name; input.value = item.v;
+      var sel = selectedGetter();
+      input.checked = multi ? sel.indexOf(item.v) > -1 : sel === item.v;
+      input.addEventListener("change", function(){ onChange(item.v, input.checked); });
+      var span = document.createElement("span"); span.textContent = item.l;
+      label.appendChild(input); label.appendChild(span);
+      container.appendChild(label);
+    });
+  }
+
+  function renderProfileSwitch(){
+    var el = document.getElementById("profileSwitch");
+    el.innerHTML = "";
+    PROFILES.forEach(function(p){
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "profile-btn" + (state.profile===p.v ? " active" : "");
+      btn.textContent = p.l;
+      btn.addEventListener("click", function(){
+        if(state.profile === p.v) return;
+        state.profile = p.v;
+        onProfileChange();
+      });
+      el.appendChild(btn);
+    });
+  }
+
+  function renderSessionChips(){
+    var isSame = state.duo && state.duoMode === "same";
+    var isDiff = state.duo && state.duoMode === "diff";
+    var opts = (isSame ? sessionsForDuo() : sessionsForProfile(state.profile)).map(function(s){ return {v:s.key, l:s.l}; });
+    if(opts.map(function(o){return o.v;}).indexOf(state.session) === -1){ state.session = opts[0].v; }
+    buildChips(document.getElementById("sessionChips"), opts, "session", false,
+      function(){ return state.session; },
+      function(v){ state.session = v; onSessionChange(); });
+    refreshZoneVisibility();
+    renderDurationChips();
+    if(isDiff) renderOtherSessionChips();
+  }
+
+  function renderOtherSessionChips(){
+    var pid = otherProfileId();
+    var legend = document.getElementById("otherSessionLegend");
+    if(legend) legend.textContent = "Séance pour " + otherProfileLabel();
+    var opts = sessionsForProfile(pid).map(function(s){ return {v:s.key, l:s.l}; });
+    if(opts.map(function(o){return o.v;}).indexOf(state.otherSession) === -1){ state.otherSession = opts[0].v; }
+    var container = document.getElementById("sessionChipsOther");
+    if(container){
+      buildChips(container, opts, "sessionOther", false,
+        function(){ return state.otherSession; },
+        function(v){ state.otherSession = v; });
+    }
+  }
+
+  function renderDurationChips(){
+    var list = durationsFor(state.session);
+    if(list.indexOf(state.duration) === -1) state.duration = list[Math.min(1,list.length-1)];
+    buildChips(document.getElementById("durationChips"), list.map(function(d){return {v:d,l:d+" min"};}), "duration", false,
+      function(){ return state.duration; },
+      function(v){ state.duration = parseInt(v,10); });
+  }
+
+  function refreshZoneVisibility(){
+    var def = sessionDef(state.session);
+    document.getElementById("zoneField").hidden = !(def.kind==="pool" && def.zones===null);
+  }
+
+  function renderSensitiveChips(){
+    var pd = curProfile();
+    buildChips(document.getElementById("sensitiveChips"), SENSITIVE_PARTS, "sensitive", true,
+      function(){ return pd.sensitiveZones; },
+      function(v, checked){
+        var i = pd.sensitiveZones.indexOf(v);
+        if(checked && i===-1) pd.sensitiveZones.push(v);
+        if(!checked && i>-1) pd.sensitiveZones.splice(i,1);
+        saveProfile(state.profile);
+      });
+    var other = document.getElementById("sensitiveOther");
+    other.value = pd.sensitiveNote || "";
+    other.oninput = function(){ pd.sensitiveNote = other.value; };
+    other.onblur = function(){ saveProfile(state.profile); };
+  }
+
+  function excludedZonesForCurrentProfile(){ return excludedZonesForProfileId(state.profile); }
+
+  function onProfileChange(){
+    renderProfileSwitch();
+    renderSessionChips();
+    renderSensitiveChips();
+    document.getElementById("recentTitle").textContent = "Journal de " + PROFILES.filter(function(p){return p.v===state.profile;})[0].l;
+    loadJournal();
+    runGeneration(currentParams(), false);
+  }
+  function onSessionChange(){ refreshZoneVisibility(); renderDurationChips(); }
+
+  function onDuoChange(){
+    document.getElementById("duoToggle").classList.toggle("on", state.duo);
+    document.getElementById("duoModeRow").hidden = !state.duo;
+    var isDiff = state.duo && state.duoMode === "diff";
+    document.getElementById("otherSessionField").hidden = !isDiff;
+    renderSessionChips();
+    runGeneration(currentParams(), false);
+  }
+
+  function initControls(){
+    renderProfileSwitch();
+
+    var duoCb = document.getElementById("duoCheckbox");
+    duoCb.checked = state.duo;
+    duoCb.addEventListener("change", function(){
+      state.duo = duoCb.checked;
+      onDuoChange();
+    });
+
+    var duoModeRadios = document.querySelectorAll('input[name="duoMode"]');
+    Array.prototype.forEach.call(duoModeRadios, function(r){
+      r.checked = (r.value === state.duoMode);
+      r.addEventListener("change", function(){
+        if(!r.checked) return;
+        state.duoMode = r.value;
+        var isDiff = state.duo && state.duoMode === "diff";
+        document.getElementById("otherSessionField").hidden = !isDiff;
+        onDuoChange();
+      });
+    });
+
+    buildChips(document.getElementById("levelChips"), LEVELS, "level", false,
+      function(){ return state.level; },
+      function(v){ state.level = v; });
+
+    buildChips(document.getElementById("zoneChips"), ZONES, "zone", true,
+      function(){ return state.zones; },
+      function(v, checked){
+        var i = state.zones.indexOf(v);
+        if(checked && i===-1) state.zones.push(v);
+        if(!checked && i>-1) state.zones.splice(i,1);
+      });
+
+    var equipContainer = document.getElementById("equipChips");
+    EQUIP_OPTS.forEach(function(item){
+      var label = document.createElement("label");
+      label.className = "chip";
+      var input = document.createElement("input");
+      input.type = "checkbox"; input.name = "equip"; input.value = item.v;
+      input.checked = true;
+      input.addEventListener("change", function(){
+        var i = state.equip.indexOf(item.v);
+        if(input.checked && i===-1) state.equip.push(item.v);
+        if(!input.checked && i>-1) state.equip.splice(i,1);
+      });
+      var span = document.createElement("span"); span.textContent = item.l;
+      label.appendChild(input); label.appendChild(span);
+      equipContainer.appendChild(label);
+    });
+
+    renderSessionChips();
+    renderSensitiveChips();
+  }
+
+  // ---------- Generation engine ----------
+  var REST_MULT = {deb:1.25, int:1, av:0.85};
+  var SETS_ADJUST = { deb:function(s){return Math.max(2,s-1);}, int:function(s){return s;}, av:function(s){return s+1;} };
+  // For exercises done on one side at a time (item.perSide), the total set count must stay even
+  // so both sides get exactly the same work — round up rather than leaving one side short.
+  function adjustedSets(item, level){
+    var s = SETS_ADJUST[level](item.s);
+    if(item.perSide && s % 2 === 1) s += 1;
+    return s;
+  }
+  function adjustedRest(item, level){ return Math.round(item.rest * REST_MULT[level]); }
+  function exerciseTimeSec(item, level){
+    var sets = adjustedSets(item, level), rest = adjustedRest(item, level);
+    var work = item.m==="r" ? 35 : item.r;
+    return sets*(work+rest)+15;
+  }
+  function equipOk(item, equipSet){ return item.eq==="aucun" || equipSet.indexOf(item.eq) > -1; }
+
+  function poolFor(params, def){
+    var equipSet = params.equip;
+    var excludedIds, excludedZones;
+    if(params.duo){
+      excludedIds = excludedIdsForDuo();
+      excludedZones = excludedZonesForDuo();
+    } else {
+      var pid = params.profileId || state.profile;
+      excludedIds = (profileData[pid] && profileData[pid].excludedExercises) || [];
+      excludedZones = excludedZonesForProfileId(pid);
+    }
+    function baseFilter(item){
+      return equipOk(item, equipSet) && item.lv.indexOf(params.level) > -1 &&
+        excludedIds.indexOf(item.id) === -1 && excludedZones.indexOf(item.z) === -1;
+    }
+    var forcedZones = def.zones;
+    function zoneFilter(item){
+      if(forcedZones) return forcedZones.indexOf(item.z) > -1;
+      return params.zones.length===0 || params.zones.indexOf(item.z) > -1;
+    }
+    if(def.kind==="cardio") return CARDIO.filter(baseFilter);
+    if(def.kind==="mobilite") return MOBILITE.filter(baseFilter).filter(zoneFilter);
+    if(def.kind==="activation") return ACTIVATION_POOL.filter(baseFilter).filter(zoneFilter);
+    if(def.kind==="pilates") return PILATES.filter(baseFilter).filter(zoneFilter);
+    if(def.kind==="pool") return MUSCU.filter(baseFilter).filter(zoneFilter);
+    if(def.kind==="fullbody"){
+      var m = shuffled(MUSCU.filter(baseFilter).filter(zoneFilter));
+      var c = shuffled(CARDIO.filter(baseFilter));
+      var out=[], i=0;
+      while((m.length||c.length) && i<40){ if(c.length) out.push(c.shift()); if(m.length) out.push(m.shift()); i++; }
+      return out;
+    }
+    return [];
+  }
+
+  function pickTimedBlock(pool, count){
+    var picked = shuffled(pool).slice(0, Math.min(count, pool.length));
+    var totalSec = 0; picked.forEach(function(p){ totalSec += p.d+10; });
+    return {items:picked, sec:totalSec};
+  }
+  function durationTier(min){ return min<=20?2:(min<=40?3:4); }
+
+  function buildCircuit(pool, budgetSec, level){
+    var list = shuffled(pool), out=[], used=0, idx=0, guard=0;
+    while(used < budgetSec && guard < 60){
+      guard++;
+      if(idx >= list.length){ if(out.length>=3) break; list=shuffled(pool); idx=0; if(!list.length) break; }
+      var candidate = list[idx]; idx++;
+      var t = exerciseTimeSec(candidate, level);
+      if(out.length>0 && used+t > budgetSec*1.25) continue;
+      out.push(candidate); used += t;
+      if(out.length>=12) break;
+    }
+    return out;
+  }
+  function buildEmom(pool, budgetSec, level){
+    var eligible = pool.filter(function(it){ return it.m==="r" || (it.m==="t" && it.r<=45); });
+    if(!eligible.length) eligible = pool;
+    var k = Math.max(3, Math.min(6, Math.round(budgetSec/60/3)));
+    var chosen = shuffled(eligible).slice(0, Math.min(k, eligible.length));
+    var totalMinutes = Math.max(chosen.length, Math.round(budgetSec/60));
+    return {kind:"emom", exercises:chosen, totalMinutes:totalMinutes};
+  }
+  function buildTabata(pool, budgetSec){
+    var blockSec=240, recSec=60, blocks = Math.max(1, Math.floor((budgetSec+recSec)/(blockSec+recSec))), out=[];
+    for(var i=0;i<blocks;i++){
+      var n = 2 + Math.floor(Math.random()*3);
+      var chosen = shuffled(pool).slice(0, Math.min(n, pool.length));
+      if(!chosen.length) break;
+      out.push(chosen);
+    }
+    return {kind:"tabata", blocks:out};
+  }
+  function buildAmrap(pool, budgetSec){
+    var eligible = pool.filter(function(it){ return it.m==="r"; });
+    if(!eligible.length) eligible = pool;
+    var n = 3 + Math.floor(Math.random()*3);
+    var chosen = shuffled(eligible).slice(0, Math.min(n, eligible.length));
+    var capMinutes = Math.max(4, Math.round(budgetSec/60));
+    return {kind:"amrap", exercises:chosen, capMinutes:capMinutes};
+  }
+
+  function pickFormat(key){
+    if(key==="cardio") return ["tabata","emom","amrap"][Math.floor(Math.random()*3)];
+    if(key==="fullbody") return ["circuit","emom"][Math.floor(Math.random()*2)];
+    if(key==="mobilite") return "continu";
+    if(key==="pilates") return "continu";
+    if(key==="etir-activation") return "continu";
+    if(key==="etir-recuperation") return "continu";
+    if(key==="velo") return "velo";
+    if(key==="match") return "match";
+    return "circuit"; // muscu, renfo-course, haut-du-corps, renfo-hanche
+  }
+
+  function buildMain(formatId, pool, budgetSec, level){
+    if(formatId==="emom") return buildEmom(pool, budgetSec, level);
+    if(formatId==="tabata") return buildTabata(pool, budgetSec);
+    if(formatId==="amrap") return buildAmrap(pool, budgetSec);
+    return {kind:"circuit", exercises:buildCircuit(pool, budgetSec, level)};
+  }
+
+  function buildVeloSession(durationMin, level){
+    var candidates = VELO_TEMPLATES.filter(function(t){ return t.levels.indexOf(level)>-1; });
+    var tpl = candidates[Math.floor(Math.random()*candidates.length)];
+    var warmupMin = Math.max(5, Math.round(durationMin*0.15));
+    var cooldownMin = Math.max(5, Math.round(durationMin*0.12));
+    var mainMin = Math.max(6, durationMin - warmupMin - cooldownMin);
+    var intervals;
+    if(tpl.id==="endurance"){ intervals = {type:"steady", minutes:mainMin}; }
+    else if(tpl.id==="seuil"){ var r1=Math.max(3,Math.round(mainMin/6)); intervals={type:"intervals",workMin:4,restMin:2,rounds:r1}; }
+    else if(tpl.id==="vo2"){ var r2=Math.max(4,Math.round(mainMin/4)); intervals={type:"intervals",workMin:2,restMin:2,rounds:r2}; }
+    else { var r3=Math.max(6,Math.round(mainMin/2.5)); intervals={type:"intervals",workMin:0.5,restMin:1.5,rounds:r3}; }
+    return {kindKey:"velo", template:tpl, warmupMin:warmupMin, cooldownMin:cooldownMin, intervals:intervals, durationMin:durationMin, level:level};
+  }
+  function buildMatchSession(durationMin){
+    var tier = durationTier(durationMin<=20?durationMin:20);
+    function pick(arr){ return shuffled(arr).slice(0, Math.min(tier, arr.length)); }
+    return {kindKey:"match", activation:pick(MATCH_ACTIVATION), mobilite:pick(MATCH_MOBILITE), intensite:pick(MATCH_INTENSITE), durationMin:durationMin};
+  }
+
+  function generateSession(params){
+    var def = sessionDef(params.session);
+    if(def.kind==="velo") return buildVeloSession(params.duration, params.level);
+    if(def.kind==="match") return buildMatchSession(params.duration);
+
+    var totalSec = params.duration*60;
+    var warmupPool = (def.kind==="mobilite" || def.kind==="activation") ? WARMUP_MOBILITE : (def.kind==="pilates" ? WARMUP_PILATES : WARMUP_GENERIC);
+    var cooldownPool = def.kind==="mobilite" ? COOLDOWN_MOBILITE : (def.kind==="pilates" ? COOLDOWN_PILATES : (def.kind==="activation" ? COOLDOWN_ACTIVATION : COOLDOWN_GENERIC));
+    var tier = durationTier(params.duration);
+    var warmup = pickTimedBlock(warmupPool, tier);
+    var cooldown = pickTimedBlock(cooldownPool, tier);
+    var mainBudget = Math.max(60, totalSec - warmup.sec - cooldown.sec);
+
+    var pool = poolFor(params, def);
+    var format = pickFormat(params.session);
+    var main = buildMain(format, pool, mainBudget, params.level);
+
+    return {
+      kindKey:"generic", params:params, def:def, labels:BLOCK_LABELS[def.key] || BLOCK_LABELS.muscu,
+      warmup:warmup.items, main:main, cooldown:cooldown.items, format:format
+    };
+  }
+
+  // ---------- Rendering: generic (circuit/emom/tabata/amrap) ----------
+  // viewProfile: null = combined display (both François & Morgane, "même séance" duo mode),
+  // otherwise a profile id ("francois"/"morgane") whose own data (weights, exclusions, sensitive zones) is shown.
+  function kbLine(item, viewProfile){
+    if(!item.kb) return "";
+    if(viewProfile === null){
+      var parts = [];
+      PROFILES.forEach(function(p){ if(item.kb[p.v]) parts.push(p.l + " " + item.kb[p.v] + " kg"); });
+      return parts.length ? '<div class="ex-kb">Charge conseillée : ' + parts.join(" · ") + '</div>' : "";
+    }
+    var w = item.kb[viewProfile];
+    return w ? '<div class="ex-kb">Charge conseillée : ' + w + ' kg</div>' : "";
+  }
+  function howToBlock(text){
+    if(!text) return "";
+    return '<details class="howto"><summary>Comment faire ?</summary><p>' + text + '</p></details>';
+  }
+  function avoidBtn(item, viewProfile){
+    var pid = (viewProfile === null || viewProfile === undefined) ? state.profile : viewProfile;
+    var pd = profileData[pid] || {excludedExercises:[]};
+    var excluded = (pd.excludedExercises||[]).indexOf(item.id) > -1;
+    return '<button type="button" class="avoid-btn' + (excluded?' on':'') + '" data-exid="' + item.id + '" data-pid="' + pid + '">' +
+      (excluded ? "Exclu — annuler" : "Éviter la prochaine fois") + '</button>';
+  }
+  function swapBtn(loc){
+    if(!loc) return "";
+    return '<button type="button" class="avoid-btn swap-btn" data-loc="' + loc + '">Remplacer</button>';
+  }
+  function fmtRestLine(item, level){
+    var sets = adjustedSets(item, level), rest = adjustedRest(item, level);
+    // Skip the hint when the reps text already says "/ côté" etc. — no need to say it twice.
+    var sideHint = (item.perSide && !/\//.test(item.r)) ? " (" + (sets/2) + " de chaque côté, en alternance)" : "";
+    if(item.m==="r") return sets + " séries × " + item.r + sideHint + " · repos " + rest + "s";
+    return sets + " × " + item.r + "s effort" + sideHint + " · repos " + rest + "s";
+  }
+  function exRow(item, i, level, loc, viewProfile){
+    var equipTag = item.eq ? '<span class="ex-equip">' + EQUIP_LABEL[item.eq] + '</span>' : "";
+    return '<div class="ex-row"><div class="ex-idx">' + (i+1) + '</div>' +
+      '<div><div class="ex-name">' + item.n + '</div><div class="ex-detail">' + fmtRestLine(item, level) + '</div>' + kbLine(item, viewProfile) + howToBlock(item.desc) + '</div>' +
+      '<div class="ex-right">' + equipTag + avoidBtn(item, viewProfile) + swapBtn(loc) + '</div></div>';
+  }
+  function exRowSimple(item, i, tag, loc, viewProfile){
+    var equipTag = item.eq ? '<span class="ex-equip">' + EQUIP_LABEL[item.eq] + '</span>' : "";
+    return '<div class="ex-row"><div class="ex-idx">' + (i+1) + '</div>' +
+      '<div><div class="ex-name">' + item.n + '</div><div class="ex-detail">' + tag + '</div>' + kbLine(item, viewProfile) + howToBlock(item.desc) + '</div>' +
+      '<div class="ex-right">' + equipTag + avoidBtn(item, viewProfile) + swapBtn(loc) + '</div></div>';
+  }
+  function fixedRow(item, i){
+    return '<div class="ex-row"><div class="ex-idx">' + (i+1) + '</div>' +
+      '<div><div class="ex-name">' + item.n + '</div><div class="ex-detail">' + item.d + ' secondes</div>' + howToBlock(item.c) + '</div>' +
+      '<span class="ex-equip">Poids du corps</span></div>';
+  }
+
+  function formatNote(session){
+    var f = session.format, m = session.main;
+    if(f==="circuit") return {title:"Circuit classique", text:"Tu effectues chaque exercice l'un après l'autre avec le nombre de séries indiqué, en respectant le temps de repos entre les séries."};
+    if(f==="emom") return {title:"EMOM — \"Every Minute On the Minute\"", text:"Tu démarres un nouvel exercice au début de chaque minute, tu le réalises puis tu récupères sur le temps restant avant la minute suivante. Ici : " + m.exercises.length + " mouvements enchaînés dans l'ordre, en boucle, pendant " + m.totalMinutes + " minutes."};
+    if(f==="tabata") return {title:"Tabata", text:"8 tours de 20 secondes d'effort maximal suivies de 10 secondes de repos (4 minutes par bloc), avec 1 minute de récupération entre les blocs. Ici : " + m.blocks.length + " bloc(s), avec un mouvement différent à chaque tour."};
+    if(f==="amrap") return {title:"AMRAP — \"As Many Rounds As Possible\"", text:"Tu enchaînes le circuit ci-dessous en boucle, sans repos imposé, pendant " + m.capMinutes + " minutes. L'objectif : compléter un maximum de tours en gardant une bonne exécution."};
+    if(f==="continu") return {title:"Séquence continue", text:"Enchaîne les postures les unes après les autres, en respirant profondément et sans forcer sur chaque maintien."};
+    return null;
+  }
+
+  function renderMainBlock(session, viewProfile){
+    var m = session.main, level = session.params.level, html = "";
+    if(m.kind==="circuit"){
+      html += m.exercises.length ? m.exercises.map(function(it,i){ return exRow(it,i,level,"circuit:"+i,viewProfile); }).join("")
+        : '<p class="hint">Aucun exercice ne correspond à cette combinaison — élargis le matériel, les zones, ou vérifie les zones sensibles cochées.</p>';
+    } else if(m.kind==="emom"){
+      html += m.exercises.map(function(it,i){
+        var tag = it.m==="r" ? ("Cible : " + it.r + " reps, puis repos jusqu'à la minute suivante") : ("Cible : " + it.r + "s d'effort, puis repos jusqu'à la minute suivante");
+        return exRowSimple(it,i,tag,"emom:"+i,viewProfile);
+      }).join("");
+    } else if(m.kind==="tabata"){
+      m.blocks.forEach(function(block, bi){
+        html += '<div class="tabata-block"><h4>Bloc ' + (bi+1) + '</h4>';
+        html += block.map(function(it,i){ return exRowSimple(it,i,"20s effort · 10s repos · alterné sur 8 tours","tabata:"+bi+":"+i,viewProfile); }).join("");
+        html += '</div>';
+      });
+    } else if(m.kind==="amrap"){
+      html += '<p class="hint">Cap : ' + m.capMinutes + ' minutes — enchaîne ce circuit en boucle et note ton nombre de tours.</p>';
+      html += m.exercises.map(function(it,i){
+        var tag = it.m==="r" ? (it.r + " répétitions") : (it.r + "s d'effort");
+        return exRowSimple(it,i,tag,"amrap:"+i,viewProfile);
+      }).join("");
+    }
+    return html;
+  }
+
+  function renderGenericSession(session, viewProfile, badge){
+    var p = session.params, def = session.def, tagClass = TYPE_TAGCLASS[def.key];
+    var zoneTags = def.zones
+      ? def.zones.map(function(z){ return '<span class="tag neutral">'+ZONE_LABEL[z]+'</span>'; }).join("")
+      : (p.zones.length ? p.zones.map(function(z){return '<span class="tag neutral">'+ZONE_LABEL[z]+'</span>';}).join("") : '<span class="tag neutral">Full body</span>');
+    var levelLabel = LEVELS.filter(function(l){return l.v===p.level;})[0].l;
+    var vig = "";
+    if(viewProfile === null){
+      var bits = [];
+      PROFILES.forEach(function(pr){
+        var d = profileData[pr.v] || {sensitiveZones:[],sensitiveNote:""};
+        var parts = (d.sensitiveZones||[]).map(function(v){ return SENSITIVE_PARTS.filter(function(s){return s.v===v;})[0].l; });
+        if(d.sensitiveNote) parts.push(d.sensitiveNote);
+        if(parts.length) bits.push(pr.l + " : " + parts.join(", "));
+      });
+      if(bits.length) vig = '<div class="vigilance">⚠ Zones à ménager aujourd\'hui — ' + bits.join(" · ") + '</div>';
+    } else {
+      var pd = profileData[viewProfile] || {sensitiveZones:[],sensitiveNote:""};
+      if(pd.sensitiveZones.length || pd.sensitiveNote){
+        var parts2 = pd.sensitiveZones.map(function(v){ return SENSITIVE_PARTS.filter(function(s){return s.v===v;})[0].l; });
+        if(pd.sensitiveNote) parts2.push(pd.sensitiveNote);
+        vig = '<div class="vigilance">⚠ Zones à ménager aujourd\'hui : ' + parts2.join(", ") + '</div>';
+      }
+    }
+    var fn = formatNote(session);
+    var on = OBJECTIVE_NOTES[def.key];
+    var badgeTag = badge ? '<span class="tag duo">' + badge + '</span>' : "";
+
+    var html = '<div class="session-head"><h2 class="session-title">' + def.l + ' · ' + p.duration + ' min</h2>' +
+      '<div class="meta-row">' + badgeTag + '<span class="tag ' + tagClass + '">' + levelLabel + '</span>' + zoneTags + '</div></div>';
+    html += vig;
+    if(fn) html += '<div class="format-note"><b>' + fn.title + '</b>' + fn.text + '</div>';
+    if(on) html += '<div class="format-note"><b>' + on.title + '</b>' + on.text + '</div>';
+
+    html += '<div class="block"><div class="block-label"><span class="block-dot"></span>' + session.labels[0] + '</div>';
+    html += session.warmup.map(function(it,i){ return fixedRow(it,i); }).join("");
+    html += '</div>';
+
+    html += '<div class="block"><div class="block-label"><span class="block-dot"></span>' + session.labels[1] + '</div>';
+    html += renderMainBlock(session, viewProfile);
+    html += '</div>';
+
+    html += '<div class="block"><div class="block-label"><span class="block-dot"></span>' + session.labels[2] + '</div>';
+    html += session.cooldown.map(function(it,i){ return fixedRow(it,i); }).join("");
+    html += '</div>';
+
+    return html;
+  }
+
+  function renderVeloSession(session){
+    var levelLabel = LEVELS.filter(function(l){return l.v===session.level;})[0].l;
+    var tpl = session.template, iv = session.intervals;
+    var mainText;
+    if(iv.type==="steady"){ mainText = iv.minutes + " minutes en continu. " + tpl.desc; }
+    else { mainText = iv.rounds + " tours de " + iv.workMin + " min d'effort / " + iv.restMin + " min de récupération. " + tpl.desc; }
+
+    var html = '<div class="session-head"><h2 class="session-title">Vélo (home trainer) · ' + session.durationMin + ' min</h2>' +
+      '<div class="meta-row"><span class="tag cardio">' + levelLabel + '</span><span class="tag neutral">' + tpl.label + '</span></div></div>';
+    html += '<div class="format-note"><b>Intervalles vélo</b>Séance structurée sur home trainer : un échauffement en pédalage facile, un corps de séance selon le protocole choisi, puis un retour au calme progressif.</div>';
+
+    html += '<div class="block"><div class="block-label"><span class="block-dot"></span>Échauffement</div>';
+    html += '<div class="ex-row"><div class="ex-idx">1</div><div><div class="ex-name">Pédalage facile, montée progressive</div><div class="ex-detail">' + session.warmupMin + ' minutes</div></div><span class="ex-equip">Vélo</span></div></div>';
+
+    html += '<div class="block"><div class="block-label"><span class="block-dot"></span>Corps de séance</div>';
+    html += '<div class="ex-row"><div class="ex-idx">1</div><div><div class="ex-name">' + tpl.label + '</div><div class="ex-detail">' + mainText + '</div></div><span class="ex-equip">Vélo</span></div></div>';
+
+    html += '<div class="block"><div class="block-label"><span class="block-dot"></span>Retour au calme</div>';
+    html += '<div class="ex-row"><div class="ex-idx">1</div><div><div class="ex-name">Pédalage facile, décontraction</div><div class="ex-detail">' + session.cooldownMin + ' minutes</div></div><span class="ex-equip">Vélo</span></div>';
+    html += '<div class="ex-row"><div class="ex-idx">2</div><div><div class="ex-name">Étirements quadriceps, mollets, ischios</div><div class="ex-detail">30s par zone</div></div><span class="ex-equip">Poids du corps</span></div></div>';
+    return html;
+  }
+
+  function renderMatchSession(session){
+    var html = '<div class="session-head"><h2 class="session-title">Échauffement jour de match · ' + session.durationMin + ' min</h2>' +
+      '<div class="meta-row"><span class="tag cardio">Tous niveaux</span></div></div>';
+    html += '<div class="format-note"><b>Échauffement structuré avant match</b>Active le cardio, mobilise les articulations, puis augmente progressivement l\'intensité pour arriver prêt au coup d\'envoi.</div>';
+    html += '<div class="block"><div class="block-label"><span class="block-dot"></span>Activation cardio</div>' + session.activation.map(function(it,i){return fixedRow(it,i);}).join("") + '</div>';
+    html += '<div class="block"><div class="block-label"><span class="block-dot"></span>Mobilité & gainage</div>' + session.mobilite.map(function(it,i){return fixedRow(it,i);}).join("") + '</div>';
+    html += '<div class="block"><div class="block-label"><span class="block-dot"></span>Intensité progressive</div>' + session.intensite.map(function(it,i){return fixedRow(it,i);}).join("") + '</div>';
+    return html;
+  }
+
+  function tipKeyFor(session){
+    if(session.kindKey==="velo") return "velo";
+    if(session.kindKey==="match") return "match";
+    return session.def.key;
+  }
+
+  // Builds the full inner HTML for one session card (header…disclaimer minus the final disclaimer,
+  // which is added once by the caller). idPrefix namespaces element ids so two cards can coexist on
+  // the page at once (idPrefix "" keeps the original ids, used by the solo / "même séance" path).
+  function buildCardHTML(session, viewProfile, badge, idPrefix){
+    var body;
+    if(session.kindKey==="velo") body = renderVeloSession(session);
+    else if(session.kindKey==="match") body = renderMatchSession(session);
+    else body = renderGenericSession(session, viewProfile, badge);
+
+    var tip = SUPPLEMENT_TIPS[tipKeyFor(session)];
+    body += '<div class="supp"><b>Après l\'effort</b>' + tip + ' Conseils généraux, pas un avis médical ou nutritionnel personnalisé.</div>';
+
+    body += '<div class="actions-row"><button type="button" class="timerbtn" id="' + idPrefix + 'startTimerBtn">▶ Lancer le chrono</button><button type="button" class="ghost" id="' + idPrefix + 'regenBtn">↻ Régénérer avec ces réglages</button></div>';
+
+    var journalTitle = "Cette séance" + (idPrefix && viewProfile ? " — " + PROFILES.filter(function(p){return p.v===viewProfile;})[0].l : "");
+    body += '<div class="journal"><h3>' + journalTitle + '</h3>' +
+      '<div class="status-row">' +
+        '<button type="button" class="status-btn" data-status="fait">✓ Faite en entier</button>' +
+        '<button type="button" class="status-btn" data-status="moitie">◐ Faite à moitié</button>' +
+        '<button type="button" class="status-btn" data-status="pas">✕ Pas faite</button>' +
+      '</div>' +
+      '<textarea id="' + idPrefix + 'sessionComment" rows="2" placeholder="Un commentaire sur cette séance (ressenti, trop dur/trop facile, à ajuster…)"></textarea>' +
+      '<div class="actions-row"><button type="button" class="ghost" id="' + idPrefix + 'saveJournalBtn">Enregistrer dans le journal</button></div>' +
+      '<div class="save-msg" id="' + idPrefix + 'saveMsg"></div>' +
+    '</div>';
+    return body;
+  }
+
+  var DISCLAIMER_HTML = '<p class="disclaimer">Échauffe-toi correctement, adapte les charges à tes sensations et arrête un mouvement en cas de douleur. Ce générateur propose une trame d\'entraînement, il ne remplace pas l\'avis d\'un professionnel de santé ou du sport.</p>';
+
+  // Wires up the interactive controls inside one card. `container` is the element the card's HTML
+  // was written into (may be the whole #sessionCard, or one .session-block inside it).
+  function wireCard(container, session, idPrefix, opts){
+    var startTimer = document.getElementById(idPrefix + "startTimerBtn");
+    if(startTimer) startTimer.addEventListener("click", function(){ openTimer(session); });
+
+    var regen = document.getElementById(idPrefix + "regenBtn");
+    if(regen && opts.onRegen) regen.addEventListener("click", opts.onRegen);
+
+    Array.prototype.forEach.call(container.querySelectorAll(".avoid-btn[data-exid]"), function(btn){
+      btn.addEventListener("click", function(){
+        toggleExcludeFor(btn.getAttribute("data-pid") || state.profile, btn.getAttribute("data-exid"));
+        if(opts.onMutate) opts.onMutate();
+      });
+    });
+    Array.prototype.forEach.call(container.querySelectorAll(".swap-btn[data-loc]"), function(btn){
+      btn.addEventListener("click", function(){
+        replaceExercise(session, btn.getAttribute("data-loc"));
+        if(opts.onMutate) opts.onMutate();
+      });
+    });
+
+    var statusBtns = container.querySelectorAll(".status-btn");
+    Array.prototype.forEach.call(statusBtns, function(btn){
+      btn.addEventListener("click", function(){
+        cardStatus[idPrefix] = btn.getAttribute("data-status");
+        Array.prototype.forEach.call(statusBtns, function(b){ b.classList.toggle("sel", b===btn); });
+      });
+    });
+
+    var saveBtn = document.getElementById(idPrefix + "saveJournalBtn");
+    if(saveBtn) saveBtn.addEventListener("click", function(){ saveCardToJournal(idPrefix, session, opts.journalPids, opts.duoLabel); });
+  }
+
+  // Solo sessions, and "même séance" duo sessions (single combined card).
+  function renderSession(session){
+    currentSession = session;
+    currentSessionA = null; currentSessionB = null;
+    cardStatus[""] = null;
+
+    var isSame = session.kindKey==="generic" && session.params.duo;
+    var viewProfile = isSame ? null : state.profile;
+    var badge = isSame ? "À deux" : null;
+    var journalPids = isSame ? PROFILES.map(function(p){return p.v;}) : [state.profile];
+    var duoLabel = isSame ? "à deux" : null;
+
+    var card = document.getElementById("sessionCard");
+    card.innerHTML = buildCardHTML(session, viewProfile, badge, "") + DISCLAIMER_HTML;
+
+    wireCard(card, session, "", {
+      onRegen: function(){ runGeneration(currentParams(), false); },
+      onMutate: function(){ renderSession(session); },
+      journalPids: journalPids,
+      duoLabel: duoLabel
+    });
+  }
+
+  // "Objectifs différents" duo mode: two independent cards, one per profile.
+  function renderDuoDiff(sessionA, pidA, sessionB, pidB){
+    currentSession = null;
+    currentSessionA = sessionA; currentSessionB = sessionB;
+    currentDiffPidA = pidA; currentDiffPidB = pidB;
+    cardStatus["a-"] = null; cardStatus["b-"] = null;
+
+    var nameA = PROFILES.filter(function(p){return p.v===pidA;})[0].l;
+    var nameB = PROFILES.filter(function(p){return p.v===pidB;})[0].l;
+
+    var card = document.getElementById("sessionCard");
+    card.innerHTML =
+      '<div class="session-block" id="blockA">' + buildCardHTML(sessionA, pidA, nameA, "a-") + '</div>' +
+      '<div class="duo-divider"></div>' +
+      '<div class="session-block" id="blockB">' + buildCardHTML(sessionB, pidB, nameB, "b-") + '</div>' +
+      DISCLAIMER_HTML;
+
+    wireCard(document.getElementById("blockA"), sessionA, "a-", {
+      onRegen: function(){ renderDuoDiff(generateSession(currentParams()), pidA, currentSessionB, pidB); },
+      onMutate: function(){ renderDuoDiff(currentSessionA, pidA, currentSessionB, pidB); },
+      journalPids: [pidA],
+      duoLabel: "en parallèle"
+    });
+    wireCard(document.getElementById("blockB"), sessionB, "b-", {
+      onRegen: function(){ renderDuoDiff(currentSessionA, pidA, generateSession(otherParams()), pidB); },
+      onMutate: function(){ renderDuoDiff(currentSessionA, pidA, currentSessionB, pidB); },
+      journalPids: [pidB],
+      duoLabel: "en parallèle"
+    });
+  }
+
+  function toggleExcludeFor(pid, id){
+    var pd = profileData[pid];
+    if(!pd) return;
+    pd.excludedExercises = pd.excludedExercises || [];
+    var i = pd.excludedExercises.indexOf(id);
+    if(i>-1) pd.excludedExercises.splice(i,1); else pd.excludedExercises.push(id);
+    saveProfile(pid);
+  }
+
+  function allMainIds(main){
+    if(main.kind==="tabata"){
+      var ids = [];
+      main.blocks.forEach(function(block){ block.forEach(function(it){ ids.push(it.id); }); });
+      return ids;
+    }
+    return main.exercises.map(function(it){ return it.id; });
+  }
+
+  function replaceExercise(session, loc){
+    if(session.kindKey !== "generic") return;
+    var parts = loc.split(":");
+    var kind = parts[0];
+    var main = session.main;
+    var oldItem = kind==="tabata" ? main.blocks[+parts[1]][+parts[2]] : main.exercises[+parts[1]];
+    if(!oldItem) return;
+
+    var excludeIds = allMainIds(main);
+    var candidates = poolFor(session.params, session.def).filter(function(it){
+      return excludeIds.indexOf(it.id) === -1;
+    });
+    if(!candidates.length){
+      var card = document.getElementById("sessionCard");
+      var note = document.createElement("p");
+      note.className = "hint";
+      note.textContent = "Aucun remplaçant disponible avec ces réglages (matériel, niveau, zones sensibles).";
+      card.insertBefore(note, card.firstChild);
+      setTimeout(function(){ if(note.parentNode) note.parentNode.removeChild(note); }, 3500);
+      return;
+    }
+    var replacement = candidates[Math.floor(Math.random()*candidates.length)];
+    if(kind==="tabata") main.blocks[+parts[1]][+parts[2]] = replacement;
+    else main.exercises[+parts[1]] = replacement;
+  }
+
+  // ---------- Timer ----------
+  var timerState = null;
+  var timerInterval = null;
+  var audioCtx = null;
+
+  function ensureAudio(){
+    if(!audioCtx){
+      try{ audioCtx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ audioCtx = null; }
+    }
+    if(audioCtx && audioCtx.state === "suspended") audioCtx.resume();
+  }
+  function beep(freq, dur, vol){
+    if(!audioCtx || (timerState && timerState.muted)) return;
+    try{
+      var osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
+      osc.type = "sine"; osc.frequency.value = freq;
+      gain.gain.value = vol || 0.15;
+      osc.connect(gain); gain.connect(audioCtx.destination);
+      osc.start(); osc.stop(audioCtx.currentTime + (dur || 0.12));
+    }catch(e){}
+  }
+  function tickBeep(){ beep(880, 0.08, 0.12); }
+  function transitionBeep(){ beep(523, 0.16, 0.16); setTimeout(function(){ beep(784, 0.16, 0.16); }, 140); }
+  function completeBeep(){ beep(660,0.15,0.16); setTimeout(function(){beep(880,0.15,0.16);},150); setTimeout(function(){beep(1046,0.28,0.18);},300); }
+
+  function buildSteps(session){
+    var steps = [{phase:"prep", seconds:8, label:"Prêt ?", sub:"Installe-toi, la séance commence."}];
+    function addFixed(list, sub){
+      list.forEach(function(it){ steps.push({phase:"work", seconds:it.d, label:it.n, sub:sub, desc:it.c}); });
+    }
+    function addCircuit(exercises, level, sub){
+      exercises.forEach(function(item){
+        var sets = adjustedSets(item, level), rest = adjustedRest(item, level);
+        for(var s=1;s<=sets;s++){
+          var sideTag = item.perSide ? (" · " + (s%2===1 ? "Côté gauche" : "Côté droit")) : "";
+          if(item.m==="r") steps.push({phase:"manual", label:item.n, sub:sub+" · série "+s+"/"+sets+sideTag+" · "+item.r+" reps", desc:item.desc});
+          else steps.push({phase:"work", seconds:item.r, label:item.n, sub:sub+" · série "+s+"/"+sets+sideTag, desc:item.desc});
+          steps.push({phase:"rest", seconds:rest, label:"Repos", sub:"avant la suite"});
+        }
+      });
+    }
+
+    if(session.kindKey === "velo"){
+      steps.push({phase:"work", seconds:session.warmupMin*60, label:"Pédalage facile", sub:"Échauffement"});
+      var iv = session.intervals;
+      if(iv.type==="steady"){
+        steps.push({phase:"work", seconds:iv.minutes*60, label:session.template.label, sub:"Corps de séance", desc:session.template.desc});
+      } else {
+        for(var rv=1; rv<=iv.rounds; rv++){
+          steps.push({phase:"work", seconds:Math.round(iv.workMin*60), label:session.template.label, sub:"Tour "+rv+"/"+iv.rounds, desc:session.template.desc});
+          if(rv < iv.rounds) steps.push({phase:"rest", seconds:Math.round(iv.restMin*60), label:"Récupération", sub:"Tour "+rv+"/"+iv.rounds});
+        }
+      }
+      steps.push({phase:"work", seconds:session.cooldownMin*60, label:"Pédalage facile, décontraction", sub:"Retour au calme"});
+    } else if(session.kindKey === "match"){
+      addFixed(session.activation, "Activation cardio");
+      addFixed(session.mobilite, "Mobilité & gainage");
+      addFixed(session.intensite, "Intensité progressive");
+    } else {
+      addFixed(session.warmup, session.labels[0]);
+      var m = session.main;
+      if(m.kind==="circuit"){
+        addCircuit(m.exercises, session.params.level, session.labels[1]);
+      } else if(m.kind==="emom"){
+        for(var r=0;r<m.totalMinutes;r++){
+          var itx = m.exercises[r % m.exercises.length];
+          var info = itx.m==="r" ? ("cible "+itx.r+" reps") : (itx.r+"s d'effort puis repos");
+          steps.push({phase:"work", seconds:60, label:itx.n, sub:"Minute "+(r+1)+"/"+m.totalMinutes+" · "+info, desc:itx.desc});
+        }
+      } else if(m.kind==="tabata"){
+        m.blocks.forEach(function(block, bi){
+          for(var rr=1; rr<=8; rr++){
+            var ie = block[(rr-1) % block.length];
+            steps.push({phase:"work", seconds:20, label:ie.n, sub:"Bloc "+(bi+1)+" · tour "+rr+"/8", desc:ie.desc});
+            steps.push({phase:"rest", seconds:10, label:"Repos", sub:"Bloc "+(bi+1)});
+          }
+          if(bi < m.blocks.length-1) steps.push({phase:"rest", seconds:60, label:"Récupération", sub:"Entre les blocs"});
+        });
+      } else if(m.kind==="amrap"){
+        steps.push({phase:"work", seconds:m.capMinutes*60, label:"AMRAP", sub:"Enchaîne le circuit en boucle, compte tes tours", amrapList:m.exercises});
+      }
+      addFixed(session.cooldown, session.labels[2]);
+    }
+
+    while(steps.length && steps[steps.length-1].phase==="rest") steps.pop();
+    return steps;
+  }
+
+  function fmtClock(sec){
+    var r = Math.max(0, sec), mm = Math.floor(r/60), ss = r%60;
+    return (mm<10?"0":"")+mm+":"+(ss<10?"0":"")+ss;
+  }
+
+  function renderTimerStep(){
+    var st = timerState.steps[timerState.idx];
+    var overlay = document.getElementById("timerOverlay");
+    overlay.className = "timer-overlay phase-" + st.phase;
+    document.getElementById("timerProgress").textContent = "Étape " + (timerState.idx+1) + " / " + timerState.steps.length;
+    document.getElementById("timerProgressFill").style.width = Math.round(((timerState.idx+1)/timerState.steps.length)*100) + "%";
+    document.getElementById("timerPhaseLabel").textContent = st.phase==="rest" ? "Repos" : (st.phase==="prep" ? "Préparation" : (st.phase==="manual" ? "À ton rythme" : "Effort"));
+    document.getElementById("timerName").textContent = st.label;
+    document.getElementById("timerSub").textContent = st.sub || "";
+    var howtoEl = document.getElementById("timerHowto");
+    if(st.desc){ howtoEl.hidden = false; howtoEl.textContent = st.desc; } else { howtoEl.hidden = true; }
+    var amrapEl = document.getElementById("timerAmrap");
+    if(st.amrapList){ amrapEl.hidden = false; amrapEl.textContent = "Circuit : " + st.amrapList.map(function(e){return e.n;}).join(" · "); }
+    else amrapEl.hidden = true;
+    var nextEl = document.getElementById("timerNext");
+    var nextStep = timerState.steps[timerState.idx+1];
+    if(nextStep){
+      document.getElementById("timerNextLabel").textContent = nextStep.label;
+      nextEl.hidden = false;
+    } else {
+      nextEl.hidden = true;
+    }
+
+    var clockEl = document.getElementById("timerClock");
+    var controlsEl = document.getElementById("timerControls");
+    if(st.phase === "manual"){
+      clockEl.hidden = true;
+      controlsEl.innerHTML = '<button type="button" class="ghost" id="timerPrev">◀</button><button type="button" class="primary" id="manualDoneBtn">Série terminée →</button>';
+      document.getElementById("manualDoneBtn").addEventListener("click", function(){ transitionBeep(); advanceStep(); });
+    } else {
+      clockEl.hidden = false;
+      clockEl.textContent = fmtClock(timerState.remaining);
+      controlsEl.innerHTML = '<button type="button" class="ghost" id="timerPrev">◀</button>' +
+        '<button type="button" class="primary" id="timerPlayPause">' + (timerState.running ? "Pause" : "Lecture") + '</button>' +
+        '<button type="button" class="ghost" id="timerSkip">Suivant ▶</button>';
+      document.getElementById("timerPlayPause").addEventListener("click", function(){ ensureAudio(); timerState.running = !timerState.running; renderTimerStep(); });
+      document.getElementById("timerSkip").addEventListener("click", function(){ advanceStep(); });
+    }
+    document.getElementById("timerPrev").addEventListener("click", function(){
+      if(timerState.idx > 0){ timerState.idx--; var prev = timerState.steps[timerState.idx]; timerState.remaining = prev.seconds || 0; renderTimerStep(); }
+    });
+  }
+
+  function advanceStep(){
+    timerState.idx++;
+    if(timerState.idx >= timerState.steps.length){ showTimerComplete(); return; }
+    var st = timerState.steps[timerState.idx];
+    timerState.remaining = st.seconds || 0;
+    renderTimerStep();
+  }
+
+  function timerTick(){
+    if(!timerState || !timerState.running) return;
+    var st = timerState.steps[timerState.idx];
+    if(st.phase === "manual") return;
+    timerState.remaining--;
+    if(timerState.remaining > 0 && timerState.remaining <= 3) tickBeep();
+    if(timerState.remaining <= 0){ transitionBeep(); advanceStep(); return; }
+    document.getElementById("timerClock").textContent = fmtClock(timerState.remaining);
+  }
+
+  function showTimerComplete(){
+    clearInterval(timerInterval);
+    completeBeep();
+    document.getElementById("timerOverlay").className = "timer-overlay phase-done";
+    document.getElementById("timerProgress").textContent = "Terminé";
+    document.getElementById("timerProgressFill").style.width = "100%";
+    document.getElementById("timerPhaseLabel").textContent = "Bravo";
+    document.getElementById("timerName").textContent = "Séance terminée";
+    document.getElementById("timerSub").textContent = "Pense à indiquer plus bas comment ça s'est passé.";
+    document.getElementById("timerClock").hidden = true;
+    document.getElementById("timerAmrap").hidden = true;
+    document.getElementById("timerHowto").hidden = true;
+    document.getElementById("timerNext").hidden = true;
+    document.getElementById("timerControls").innerHTML = '<button type="button" class="primary" id="timerDoneClose">Fermer</button>';
+    document.getElementById("timerDoneClose").addEventListener("click", function(){
+      closeTimer();
+      var statusRow = document.querySelector(".status-row");
+      if(statusRow) statusRow.scrollIntoView({behavior:"smooth", block:"center"});
+    });
+  }
+
+  // ---------- Écran maintenu allumé pendant la séance (tablette qui se met en veille) ----------
+  var wakeLock = null, wakeLockUnsupported = false;
+  function requestWakeLock(){
+    if(!('wakeLock' in navigator)){ wakeLockUnsupported = true; return; }
+    navigator.wakeLock.request('screen').then(function(lock){
+      wakeLock = lock;
+      wakeLock.addEventListener('release', function(){ wakeLock = null; });
+    }).catch(function(){ wakeLock = null; });
+  }
+  function releaseWakeLock(){
+    if(wakeLock){ wakeLock.release().catch(function(){}); wakeLock = null; }
+  }
+  // Le verrou est automatiquement relâché par le navigateur si l'onglet passe en arrière-plan
+  // (tablette verrouillée manuellement, changement d'appli) : on le redemande dès le retour.
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible' && timerState && !document.getElementById("timerOverlay").hidden && !wakeLock){
+      requestWakeLock();
+    }
+  });
+
+  function openTimer(session){
+    var steps = buildSteps(session);
+    timerState = {steps:steps, idx:0, remaining:steps[0].seconds || 0, running:true, muted:false};
+    document.getElementById("timerOverlay").hidden = false;
+    document.getElementById("timerClock").hidden = false;
+    ensureAudio();
+    requestWakeLock();
+    renderTimerStep();
+    clearInterval(timerInterval);
+    timerInterval = setInterval(timerTick, 1000);
+  }
+  function closeTimer(){
+    clearInterval(timerInterval);
+    releaseWakeLock();
+    document.getElementById("timerOverlay").hidden = true;
+  }
+  document.getElementById("timerClose").addEventListener("click", closeTimer);
+  document.getElementById("timerMute").addEventListener("click", function(){
+    if(!timerState) return;
+    timerState.muted = !timerState.muted;
+    document.getElementById("timerMute").textContent = timerState.muted ? "Son : off" : "Son : on";
+  });
+
+  // ---------- Persistence (stockage local à cet appareil / ce navigateur) ----------
+  var PROFILES_KEY = "seance-express-profiles-v1";
+  var JOURNAL_KEY = "seance-express-journal-v1";
+  var storageOk = true;
+
+  function loadAllProfiles(){
+    try{
+      var raw = localStorage.getItem(PROFILES_KEY);
+      if(!raw) return;
+      var parsed = JSON.parse(raw);
+      PROFILES.forEach(function(p){
+        if(parsed[p.v]){
+          profileData[p.v] = {
+            sensitiveZones: parsed[p.v].sensitiveZones || [],
+            sensitiveNote: parsed[p.v].sensitiveNote || "",
+            excludedExercises: parsed[p.v].excludedExercises || []
+          };
+        }
+      });
+    }catch(e){ storageOk = false; }
+  }
+  function saveProfile(pid){
+    try{
+      var raw = localStorage.getItem(PROFILES_KEY);
+      var all = raw ? JSON.parse(raw) : {};
+      all[pid] = profileData[pid];
+      localStorage.setItem(PROFILES_KEY, JSON.stringify(all));
+    }catch(e){ storageOk = false; }
+  }
+
+  function readJournal(){
+    try{
+      var raw = localStorage.getItem(JOURNAL_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }catch(e){ storageOk = false; return []; }
+  }
+  function writeJournal(list){
+    try{
+      localStorage.setItem(JOURNAL_KEY, JSON.stringify(list.slice(0,200)));
+      return true;
+    }catch(e){ storageOk = false; return false; }
+  }
+
+  function saveCardToJournal(idPrefix, session, journalPids, duoLabel){
+    var msg = document.getElementById(idPrefix + "saveMsg");
+    var status = cardStatus[idPrefix];
+    if(!status){ msg.textContent = "Choisis un statut (faite / à moitié / pas faite) avant d'enregistrer."; msg.style.color = "var(--warn)"; return; }
+    var comment = document.getElementById(idPrefix + "sessionComment").value.trim();
+    var label = session.kindKey==="velo" ? "Vélo (home trainer)" : (session.kindKey==="match" ? "Échauffement jour de match" : session.def.l);
+    var duration = session.durationMin || (session.params && session.params.duration) || 0;
+    var stamp = Date.now();
+    var createdAt = new Date().toISOString();
+    var list = readJournal();
+    journalPids.forEach(function(pid, i){
+      list.unshift({
+        id: (stamp+i) + "-" + Math.floor(Math.random()*1000),
+        profile: pid, label: label, duration: duration, status: status,
+        comment: comment, createdAt: createdAt, duoLabel: duoLabel || null
+      });
+    });
+    var ok = writeJournal(list);
+    if(ok){
+      msg.textContent = "Séance enregistrée dans le journal.";
+      msg.style.color = "var(--mobilite)";
+      loadJournal();
+    } else {
+      msg.textContent = "Le stockage local n'est pas disponible sur cet appareil — impossible d'enregistrer.";
+      msg.style.color = "var(--warn)";
+    }
+  }
+
+  function statusLabel(s){ return s==="fait" ? "Faite" : (s==="moitie" ? "À moitié" : "Pas faite"); }
+  function statusClass(s){ return s==="fait" ? "full" : (s==="moitie" ? "half" : "none"); }
+
+  function loadJournal(){
+    var el = document.getElementById("recentList");
+    if(!storageOk){ el.innerHTML = '<p class="db-note">Le stockage local n\'est pas disponible sur cet appareil (mode privé ?) — le journal ne peut pas être sauvegardé ici.</p>'; return; }
+    var list = readJournal().filter(function(v){ return v.profile === state.profile; }).slice(0,8);
+    if(!list.length){ el.innerHTML = '<p class="recent-empty">Aucune séance enregistrée pour le moment.</p>'; return; }
+    el.innerHTML = list.map(function(v){
+      var date = new Date(v.createdAt);
+      var when = date.toLocaleDateString("fr-FR",{day:"numeric",month:"short"}) + " · " + date.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"});
+      return '<div class="recent-item"><span><b>' + v.label + (v.duoLabel ? ' · ' + v.duoLabel : '') + '</b> · ' + v.duration + ' min · ' + when + (v.comment ? '<br>"' + v.comment.replace(/</g,"&lt;") + '"' : '') + '</span>' +
+        '<span class="recent-status ' + statusClass(v.status) + '">' + statusLabel(v.status) + '</span></div>';
+    }).join("");
+  }
+
+  // ---------- Wiring ----------
+  function currentParams(){
+    var isSame = state.duo && state.duoMode === "same";
+    return { session: state.session, duration: state.duration, level: state.level, zones: state.zones.slice(), equip: state.equip.slice(), duo: isSame, profileId: state.profile };
+  }
+  function otherParams(){
+    var pid = otherProfileId();
+    return { session: state.otherSession, duration: state.duration, level: state.level, zones: state.zones.slice(), equip: state.equip.slice(), duo: false, profileId: pid };
+  }
+  function runGeneration(params, unused){
+    if(state.duo && state.duoMode === "diff"){
+      var pidA = state.profile, pidB = otherProfileId();
+      renderDuoDiff(generateSession(currentParams()), pidA, generateSession(otherParams()), pidB);
+    } else {
+      renderSession(generateSession(params));
+    }
+  }
+
+  function init(){
+    loadAllProfiles();
+    initControls();
+    document.getElementById("genForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      runGeneration(currentParams(), false);
+    });
+    runGeneration(currentParams(), false);
+    loadJournal();
+    if(!storageOk){
+      document.getElementById("recentList").innerHTML = '<p class="db-note">Le stockage local n\'est pas disponible sur cet appareil (mode privé ?) — le journal ne peut pas être sauvegardé ici.</p>';
+    }
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>

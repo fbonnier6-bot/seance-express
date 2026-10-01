@@ -1,0 +1,20 @@
+{
+  "name": "Séance Express",
+  "short_name": "Séance Express",
+  "description": "Générateur de séances de sport sur mesure",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EEF1EA",
+  "theme_color": "#E85A32",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
